@@ -3,27 +3,44 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abarrio- <abarrio-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: angela <angela@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 16:13:13 by abarrio-          #+#    #+#             */
-/*   Updated: 2024/05/01 16:58:32 by abarrio-         ###   ########.fr       */
+/*   Updated: 2024/05/02 17:39:40 by angela           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONTACT_H
-# define CONTACT_H
+#ifndef CONTACT_HPP
+# define CONTACT_HPP
 
-# include "phonebook.hpp"
+#include "main.hpp"
 
 class Contact
 {
     private:
-        long number;
-        std::string name;
-        
+        std::string _phNumber;
+        std::string _firstName;
+        std::string _lastName;
+        std::string _nickname;
+        std::string _darkestSecret;
     public:
-        Contact(number, name); /* Constructor */
-        ~Contact(number, name); /* Destructor */
+        /* COSNTRUCTORES */
+        Contact(std::string, std::string, std::string, std::string, std::string);
+        Contact(void);
+        /* DESTRUCTOR */
+        ~Contact(void);
+        /* GETTERS */
+        std::string getPhNumber();
+        std::string getFirstName();
+        std::string getLastName();
+        std::string getNickname();
+        std::string getDarkestSecret();
+        /* SETTERS */
+        void setPhNumber(std::string);
+        void setFirstName(std::string);
+        void setLastName(std::string);
+        void setNickname(std::string);
+        void setDarkestSecret(std::string);
 
 };
 

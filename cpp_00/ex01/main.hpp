@@ -1,22 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.cpp                                      :+:      :+:    :+:   */
+/*   main.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abarrio- <abarrio-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: angela <angela@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/01 11:30:11 by abarrio-          #+#    #+#             */
-/*   Updated: 2024/05/01 16:58:08 by abarrio-         ###   ########.fr       */
+/*   Created: 2024/05/01 11:33:55 by abarrio-          #+#    #+#             */
+/*   Updated: 2024/05/02 11:01:35 by angela           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "phonebook.hpp"
+#ifndef MAIN_HPP
+# define MAIN_HPP
 
-int main(void)
-{
-    Contact phonebook[8];
+# include <iostream>
+# include <stdlib.h>
+# include "Contact.hpp"
+# include "PhoneBook.hpp"
 
-    
-    
-    return (0);
-}
+# endif

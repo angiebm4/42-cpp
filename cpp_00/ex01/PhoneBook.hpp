@@ -1,20 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.hpp                                      :+:      :+:    :+:   */
+/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abarrio- <abarrio-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: angela <angela@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/01 11:33:55 by abarrio-          #+#    #+#             */
-/*   Updated: 2024/05/01 17:30:50 by abarrio-         ###   ########.fr       */
+/*   Created: 2024/05/01 23:52:37 by angela            #+#    #+#             */
+/*   Updated: 2024/05/02 17:48:45 by angela           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHONEBOOK_HPP
 # define PHONEBOOK_HPP
 
-# include <iostream>
-# include <stdlib.h>
-# include "Contact.hpp"
+# include "main.hpp"
 
-# endif
+class PhoneBook
+{
+    private:
+        Contact _Contact[8];
+    public:
+        void add(int);
+        void search();
+        PhoneBook(void);
+        ~PhoneBook(void);
+};
+
+#endif
