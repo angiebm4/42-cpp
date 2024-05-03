@@ -6,7 +6,7 @@
 /*   By: angela <angela@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 11:33:55 by abarrio-          #+#    #+#             */
-/*   Updated: 2024/05/02 11:01:35 by angela           ###   ########.fr       */
+/*   Updated: 2024/05/03 13:12:26 by angela           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include <iostream>
 # include <stdlib.h>
+# include <iomanip>
+# include <string>
 # include "Contact.hpp"
 # include "PhoneBook.hpp"
 

@@ -6,7 +6,7 @@
 /*   By: angela <angela@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 16:12:37 by abarrio-          #+#    #+#             */
-/*   Updated: 2024/05/02 18:05:35 by angela           ###   ########.fr       */
+/*   Updated: 2024/05/03 13:58:15 by angela           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ Contact::Contact(void)
     _lastName = "";
     _nickname = "";
     _darkestSecret = "";
-    // std::cout << "Constructor" << std::endl;
     return;
 }
 
@@ -34,7 +33,6 @@ Contact::Contact(std::string phNumber, std::string firstname,
     _lastName = lastName;
     _nickname = nickname;
     _darkestSecret = darkestSecret;
-    // std::cout << "Constructor" << std::endl;
     return;
 }
 
@@ -42,7 +40,6 @@ Contact::Contact(std::string phNumber, std::string firstname,
 
 Contact::~Contact(void)
 {
-//    std::cout << "Destructor" << std::endl;
     return;
 }
 
