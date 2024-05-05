@@ -6,15 +6,28 @@
 /*   By: angela <angela@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 15:12:52 by angela            #+#    #+#             */
-/*   Updated: 2024/05/03 19:08:46 by angela           ###   ########.fr       */
+/*   Updated: 2024/05/04 14:04:41 by angela           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <iostream>
+#include <ctime>
+#include <iomanip>
 #include "Account.hpp"
+
+int Account::_nbAccounts = 0;
+int Account::_totalAmount = 0;
+int Account::_totalNbDeposits = 0;
+int Account::_totalNbWithdrawals = 0;
 
 /* CONSTRUCTOR */
 
-Account::Account( int initial_deposit )
+Account::Account()
+{
+    return ;
+}
+
+Account::Account(int initial_deposit)
 {
     _amount = initial_deposit;
     return ;
@@ -27,22 +40,43 @@ Account::~Account(void)
     return ;
 }
 
-void	Account::_displayTimestamp( void )
+
+void	Account::_displayTimestamp(void)
+{
+    time_t aux;
+    struct tm *time_info;
+
+    time (&aux);
+    time_info = localtime(&aux); 
+    std::cout << "[";
+    std::cout << time_info->tm_year + 1900;
+    std::cout << std::setfill('0') << std::setw(2) << time_info->tm_mon + 1;
+    std::cout << std::setfill('0') << std::setw(2) << time_info->tm_mday;
+    std::cout << "_"; 
+    std::cout << std::setfill('0') << std::setw(2) << time_info->tm_hour;
+    std::cout << std::setfill('0') << std::setw(2) << time_info->tm_min;
+    std::cout << std::setfill('0') << std::setw(2) << time_info->tm_sec;
+    std::cout << "]";
+}
+
+void	Account::displayAccountsInfos(void)
+{
+    _displayTimestamp();
+    std::cout << " index:" << _accountIndex;
+    //  index:1;amount:54;deposits:0;withdrawals:0
+    return ;
+}
+void	Account::displayStatus(void) const
 {
     return ;
 }
 
-void	Account::displayStatus( void ) const
+int		Account::checkAmount(void) const
 {
-    return ;
+    return (0);
 }
 
-int		Account::checkAmount( void ) const
-{
-    return ;
-}
-
-bool	Account::makeWithdrawal( int withdrawal )
+bool	Account::makeWithdrawal(int withdrawal)
 {
     if (withdrawal > _amount)
         return(false);
@@ -51,35 +85,33 @@ bool	Account::makeWithdrawal( int withdrawal )
     return (true);
 }
 
-void	Account::makeDeposit( int deposit )
+void	Account::makeDeposit(int deposit)
 {
+    _nbDeposits += 1;
+    _amount = _amount + deposit;
     return ;
 }
 
-void	displayAccountsInfos( void )
-{
-    return ;
-}
 
 
 /* GETTERS */
 
-int	Account::getNbAccounts( void )
+int	Account::getNbAccounts(void)
 {
     return (_nbAccounts);
 }
 
-int	Account::getTotalAmount( void )
+int	Account::getTotalAmount(void)
 {
     return (_totalAmount);
 }
 
-int	Account::getNbDeposits( void )
+int	Account::getNbDeposits(void)
 {
     return (_totalNbDeposits);
 }
 
-int	Account::getNbWithdrawals( void )
+int	Account::getNbWithdrawals(void)
 {
     return (_totalNbWithdrawals);
 }

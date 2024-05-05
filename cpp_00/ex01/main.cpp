@@ -6,11 +6,14 @@
 /*   By: angela <angela@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 11:30:11 by abarrio-          #+#    #+#             */
-/*   Updated: 2024/05/02 18:30:54 by angela           ###   ########.fr       */
+/*   Updated: 2024/05/04 00:02:32 by angela           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "main.hpp"
+
+/* TODO: control d capear */
+/* TODO: no funciona al añadir mas de 8 contactos :( */
 
 int main(void)
 {

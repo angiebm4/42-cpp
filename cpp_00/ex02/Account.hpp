@@ -40,6 +40,7 @@ public:
 
 private:
 
+	/* variables clase */
 	static int	_nbAccounts;
 	static int	_totalAmount;
 	static int	_totalNbDeposits;
@@ -47,6 +48,7 @@ private:
 
 	static void	_displayTimestamp( void );
 
+	/* variables objeto */
 	int				_accountIndex;
 	int				_amount;
 	int				_nbDeposits;
