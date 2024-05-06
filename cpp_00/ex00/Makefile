@@ -19,7 +19,7 @@ OBJ = $(SRC:%.cpp=$(OBJ_DIR)%.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@echo "$(PINK)Compiling the cpp ex00.$(CLEAR)"
+	@echo "$(PINK)Compiling the cpp00 ex00.$(CLEAR)"
 	$(CC) $(OBJ) $(CFLAGS) -o $(NAME)
 	@echo "$(GREEN)[OK]\n$(CLEAR)$(GREEN)Success!$(CLEAR)\n"
 
