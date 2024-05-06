@@ -6,7 +6,7 @@
 /*   By: angela <angela@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 15:12:52 by angela            #+#    #+#             */
-/*   Updated: 2024/05/06 13:10:01 by angela           ###   ########.fr       */
+/*   Updated: 2024/05/06 13:19:49 by angela           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,13 @@ Account::Account(int initial_deposit)
     _amount = initial_deposit;
     _nbAccounts++;
     _accountIndex = _nbAccounts - 1;
+    _nbDeposits = 0;
+    _nbWithdrawals = 0;
     _displayTimestamp();
     std::cout << " index:" << _accountIndex;
     std::cout << ";amount" << _amount;
     std::cout << ";created";
     std::cout << std::endl;
-
-    return ;
 }
 
 /* DESTRUCTOR */
@@ -50,9 +50,9 @@ Account::~Account(void)
     std::cout << ";amount:" << _amount;
     std::cout << ";colsed";
     std::cout << std::endl;
-    return ;
 }
 
+/* METODS */
 
 void	Account::_displayTimestamp(void)
 {
@@ -80,9 +80,8 @@ void	Account::displayAccountsInfos(void)
     std::cout << ";deposits:" << _totalNbDeposits;
     std::cout << ";withdrawal:" << _totalNbWithdrawals;
     std::cout << std::endl;
-    
-    return ;
 }
+
 void	Account::displayStatus(void) const
 {
     _displayTimestamp();
@@ -137,10 +136,7 @@ void	Account::makeDeposit(int deposit)
     std::cout << ";amount:" << _amount;
     std::cout << ";nb_deposits:" << _nbDeposits;
     std::cout << std::endl;
-    return ;
 }
-
-
 
 /* GETTERS */
 
@@ -163,5 +159,3 @@ int	Account::getNbWithdrawals(void)
 {
     return (_totalNbWithdrawals);
 }
-
-
