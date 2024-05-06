@@ -6,13 +6,12 @@ BLUE	=	\033[94;1m
 PINK	=	\033[95;1m
 CLEAR	=	\033[0m
 
-NAME = account
+NAME = zombie
 
 CC = g++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC =	Account.cpp \
-		tests.cpp
+SRC =	main.cpp
 
 OBJ_DIR = obj/
 OBJ = $(SRC:%.cpp=$(OBJ_DIR)%.o)
@@ -20,7 +19,7 @@ OBJ = $(SRC:%.cpp=$(OBJ_DIR)%.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@echo "$(PINK)Compiling the cpp ex00.$(CLEAR)"
+	@echo "$(PINK)Compiling the cpp01 ex00.$(CLEAR)"
 	$(CC) $(OBJ) $(CFLAGS) -o $(NAME)
 	@echo "$(GREEN)[OK]\n$(CLEAR)$(GREEN)Success!$(CLEAR)\n"
 

@@ -1,19 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: angela <angela@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/06 13:24:03 by angela            #+#    #+#             */
-/*   Updated: 2024/05/06 13:27:24 by angela           ###   ########.fr       */
+/*   Created: 2024/05/06 13:25:10 by angela            #+#    #+#             */
+/*   Updated: 2024/05/06 14:21:27 by angela           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef ZOMBIE_HPP
+# define ZOMBIE_HPP
+
 #include <iostream>
 
-int main(void)
+
+class Zombie
 {
-    return (0);
+    private:
+        std:string _name;
+    public:
+        Zombie(std::string);
+        ~Zombie(void);
+        void announce(void);
 }
+#endif

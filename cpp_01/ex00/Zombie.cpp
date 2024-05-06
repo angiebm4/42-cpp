@@ -1,19 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: angela <angela@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/06 13:24:03 by angela            #+#    #+#             */
-/*   Updated: 2024/05/06 13:27:24 by angela           ###   ########.fr       */
+/*   Created: 2024/05/06 13:25:08 by angela            #+#    #+#             */
+/*   Updated: 2024/05/06 14:29:15 by angela           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 #include <iostream>
 
-int main(void)
+/* CONTRUCTOR */
+
+Zombie::Zombie(std::string name)
 {
-    return (0);
+    _name = name;
+}
+
+Zombie::~Zombie(void)
+{
+    std::cout << _name << "was destroyed" << std::endl;
+    // hay que eliminar los zombies
+    return;
+}
+
+void    Zombie::announce(void)
+{
+    std::cout << _name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }
