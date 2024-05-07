@@ -6,14 +6,18 @@
 /*   By: angela <angela@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 13:24:03 by angela            #+#    #+#             */
-/*   Updated: 2024/05/06 13:27:24 by angela           ###   ########.fr       */
+/*   Updated: 2024/05/07 18:59:22 by angela           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
-#include <iostream>
+#include "Zombie.h"
 
 int main(void)
 {
+    randomChump("Luizzzz");
+    Zombie  *z1 = newZombie("Angie");
+
+    z1->announce();
+    delete z1;
     return (0);
 }

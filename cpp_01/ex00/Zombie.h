@@ -1,20 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   new_Zombie.cpp                                     :+:      :+:    :+:   */
+/*   Zombie.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: angela <angela@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/06 13:25:41 by angela            #+#    #+#             */
-/*   Updated: 2024/05/07 18:54:29 by angela           ###   ########.fr       */
+/*   Created: 2024/05/07 18:51:32 by angela            #+#    #+#             */
+/*   Updated: 2024/05/07 18:54:59 by angela           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.h"
+#ifndef ZOMBIE_H
+# define ZOMBIE_H
 
-Zombie* newZombie(std::string name)
-{
-   Zombie *z1 = new Zombie(name);
+# include <iostream>
+# include "Zombie.hpp"
 
-   return(z1);
-}
+void randomChump(std::string name);
+Zombie* newZombie(std::string name);
+
+#endif

@@ -6,12 +6,11 @@
 /*   By: angela <angela@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 13:25:08 by angela            #+#    #+#             */
-/*   Updated: 2024/05/06 14:29:15 by angela           ###   ########.fr       */
+/*   Updated: 2024/05/07 19:00:34 by angela           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
-#include <iostream>
+#include "Zombie.h"
 
 /* CONTRUCTOR */
 
@@ -22,7 +21,7 @@ Zombie::Zombie(std::string name)
 
 Zombie::~Zombie(void)
 {
-    std::cout << _name << "was destroyed" << std::endl;
+    std::cout << _name << " was 2 much rotten and died" << std::endl;
     // hay que eliminar los zombies
     return;
 }

@@ -6,9 +6,15 @@
 /*   By: angela <angela@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 13:26:06 by angela            #+#    #+#             */
-/*   Updated: 2024/05/06 13:26:54 by angela           ###   ########.fr       */
+/*   Updated: 2024/05/07 18:54:15 by angela           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
-#include <iostream>
+#include "Zombie.h"
+
+void randomChump(std::string name)
+{
+    Zombie z1(name);
+
+    z1.announce();
+}

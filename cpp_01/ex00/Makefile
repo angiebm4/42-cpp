@@ -11,7 +11,10 @@ NAME = zombie
 CC = g++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC =	main.cpp
+SRC =	main.cpp \
+		Zombie.cpp \
+		new_Zombie.cpp \
+		randomChump.cpp
 
 OBJ_DIR = obj/
 OBJ = $(SRC:%.cpp=$(OBJ_DIR)%.o)
