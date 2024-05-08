@@ -6,7 +6,7 @@
 /*   By: angela <angela@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 15:12:52 by angela            #+#    #+#             */
-/*   Updated: 2024/05/06 13:19:49 by angela           ###   ########.fr       */
+/*   Updated: 2024/05/08 11:33:46 by angela           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ Account::~Account(void)
     _displayTimestamp();
     std::cout << " index:" << _accountIndex;
     std::cout << ";amount:" << _amount;
-    std::cout << ";colsed";
+    std::cout << ";closed";
     std::cout << std::endl;
 }
 

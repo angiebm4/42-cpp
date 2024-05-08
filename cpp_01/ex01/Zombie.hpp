@@ -6,7 +6,7 @@
 /*   By: angela <angela@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 13:25:10 by angela            #+#    #+#             */
-/*   Updated: 2024/05/07 20:25:40 by angela           ###   ########.fr       */
+/*   Updated: 2024/05/08 11:29:35 by angela           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ class Zombie
         Zombie();
         ~Zombie(void);
         void announce(void);
+        void setname(std::string);
 };
 
 #endif
