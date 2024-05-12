@@ -6,32 +6,36 @@
 /*   By: angela <angela@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 13:24:03 by angela            #+#    #+#             */
-/*   Updated: 2024/05/09 14:47:00 by angela           ###   ########.fr       */
+/*   Updated: 2024/05/11 12:51:32 by angela           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <cstdlib>
+#include <fstream>
 
 void	leaks(void)
 {
-	system("leaks -q memory_manage");
+	system("leaks -q sed_losers");
 }
 
-int main(void)
+int main(int argc, char *argv[])
 {
     atexit(leaks);
-    std::string str = "HI THIS IS BRAIN";
-    std::string *stringPTR = &str;
-    std::string &stringREF = str;
+    if (argc != 4)
+    {
+        std::cout << "invalid args pls follow the following sintax: [filename] [sentence 1] [sentence 2]" << std::endl;
+        return(0);
+    }
+    std::ofstream    file;
+    file.open(argv[1], );
+    if (file.fail())
+    {
+        std::cout << "error al"
+    }
 
-    std::cout << "The memory address of the string variable: [" << &str  << "]" << std::endl;
-    std::cout << "The memory address held by stringPTR: [" << stringPTR << "]" << std::endl;
-    std::cout << "The memory address held by stringREF: [" << &stringREF << "]" << std::endl;
-
-    std::cout << "The value of the string variable: [" << str << "]" << std::endl;
-    std::cout << "The value pointed to by stringPTR: [" << *stringPTR << "]" << std::endl;
-    std::cout << "The value pointed to by stringREF: [" << stringREF << "]" << std::endl;
+    file << argv[2] << std::endl;
+    file.close();
 
     return (0);
 }

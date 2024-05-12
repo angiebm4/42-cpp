@@ -6,7 +6,7 @@
 /*   By: angela <angela@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 13:24:03 by angela            #+#    #+#             */
-/*   Updated: 2024/05/09 14:40:29 by angela           ###   ########.fr       */
+/*   Updated: 2024/05/09 14:46:39 by angela           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 void	leaks(void)
 {
-	system("leaks -q zombie");
+	system("leaks -q violence");
 }
 
 int main(void)
