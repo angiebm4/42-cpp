@@ -6,14 +6,12 @@ BLUE	=	\033[94;1m
 PINK	=	\033[95;1m
 CLEAR	=	\033[0m
 
-NAME = phonebook
+NAME = sed_losers
 
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC =	PhoneBook.cpp \
-		Contact.cpp \
-		main.cpp
+SRC =	main.cpp
 
 OBJ_DIR = obj/
 OBJ = $(SRC:%.cpp=$(OBJ_DIR)%.o)
@@ -21,7 +19,7 @@ OBJ = $(SRC:%.cpp=$(OBJ_DIR)%.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@echo "$(PINK)Compiling the cpp00 ex01.$(CLEAR)"
+	@echo "$(PINK)Compiling the cpp01 ex05.$(CLEAR)"
 	$(CC) $(OBJ) $(CFLAGS) -o $(NAME)
 	@echo "$(GREEN)[OK]\n$(CLEAR)$(GREEN)Success!$(CLEAR)\n"
 

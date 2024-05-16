@@ -8,7 +8,7 @@ CLEAR	=	\033[0m
 
 NAME = account
 
-CC = g++
+CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRC =	Account.cpp \
