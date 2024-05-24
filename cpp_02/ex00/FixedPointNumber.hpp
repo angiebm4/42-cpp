@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   FixedPointNumber.hpp                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: angela <angela@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/06 13:24:03 by angela            #+#    #+#             */
-/*   Updated: 2024/05/21 10:53:30 by angela           ###   ########.fr       */
+/*   Created: 2024/05/24 12:18:12 by angela            #+#    #+#             */
+/*   Updated: 2024/05/24 12:22:12 by angela           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#ifndef FIXED_POINT_NUMBER_HPP
+# define FIXED_POINT_NUMBER_HPP
 
-void	leaks(void)
+class FixedPointNumber
 {
-	system("leaks -q harl");
-}
-
-int main(int argc, char *argv[])
-{
-    atexit(leaks);
-    return (0);
-}
+    private:
+        int fp_number;
+        const int   Fractional_Bits = 8;
+    public:
+        FixedPointNumber(void);
+        ~FixedPointNumber(void);
+        int getRawBits(void);
+        void setRawBits(int const raw);
+        
+};
+#endif

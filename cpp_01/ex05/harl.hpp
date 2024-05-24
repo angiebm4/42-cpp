@@ -1,24 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: angela <angela@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/06 13:24:03 by angela            #+#    #+#             */
-/*   Updated: 2024/05/21 10:53:30 by angela           ###   ########.fr       */
+/*   Created: 2024/05/21 10:54:09 by angela            #+#    #+#             */
+/*   Updated: 2024/05/21 11:20:21 by angela           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#ifndef HARL_HPP
+# define HARL_HPP
 
-void	leaks(void)
-{
-	system("leaks -q harl");
-}
+# include <iostream>
 
-int main(int argc, char *argv[])
+class Harl
 {
-    atexit(leaks);
-    return (0);
-}
+    private:
+        void debug(void);
+        void info(void);
+        void warning(void);
+        void error(void);
+    public:
+        void complain(std::string level);
+        Harl(void);
+        ~Harl(void);
+};
+
+#endif

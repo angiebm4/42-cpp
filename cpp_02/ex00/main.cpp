@@ -5,20 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: angela <angela@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/06 13:24:03 by angela            #+#    #+#             */
-/*   Updated: 2024/05/21 10:53:30 by angela           ###   ########.fr       */
+/*   Created: 2024/05/24 12:16:46 by angela            #+#    #+#             */
+/*   Updated: 2024/05/24 12:16:47 by angela           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-
-void	leaks(void)
-{
-	system("leaks -q harl");
-}
-
-int main(int argc, char *argv[])
-{
-    atexit(leaks);
-    return (0);
-}

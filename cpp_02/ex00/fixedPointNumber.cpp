@@ -1,24 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   fixedPointNumber.cpp                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: angela <angela@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/06 13:24:03 by angela            #+#    #+#             */
-/*   Updated: 2024/05/21 10:53:30 by angela           ###   ########.fr       */
+/*   Created: 2024/05/24 12:18:14 by angela            #+#    #+#             */
+/*   Updated: 2024/05/24 12:18:15 by angela           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-
-void	leaks(void)
-{
-	system("leaks -q harl");
-}
-
-int main(int argc, char *argv[])
-{
-    atexit(leaks);
-    return (0);
-}
