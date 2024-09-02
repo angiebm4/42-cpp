@@ -3,26 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angela <angela@student.42.fr>              +#+  +:+       +#+        */
+/*   By: abarrio- <abarrio-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 13:24:03 by angela            #+#    #+#             */
-/*   Updated: 2024/05/08 00:13:22 by angela           ###   ########.fr       */
+/*   Updated: 2024/08/13 12:36:30 by abarrio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.h"
 #include <cstdlib>
 
-/* TODO: por que mierdas el destructor destruye antes y despues */
-
-void	leaks(void)
-{
-	system("leaks -q zombie");
-}
-
 int main(void)
 {
-    atexit(leaks);
     int N = 4;
     Zombie  *z1 = zombieHorde(N, "Angie");
 
