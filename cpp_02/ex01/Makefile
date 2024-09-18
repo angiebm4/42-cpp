@@ -6,7 +6,7 @@
 #    By: abarrio- <abarrio-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/17 12:58:32 by abarrio-          #+#    #+#              #
-#    Updated: 2024/09/18 12:14:28 by abarrio-         ###   ########.fr        #
+#    Updated: 2024/09/18 12:14:23 by abarrio-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ OBJ = $(SRC:%.cpp=$(OBJ_DIR)%.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@echo "$(PINK)Compiling the cpp02 ex00.$(CLEAR)"
+	@echo "$(PINK)Compiling the cpp02 ex01.$(CLEAR)"
 	$(CC) $(OBJ) $(CFLAGS) -o $(NAME)
 	@echo "$(GREEN)[OK]\n$(CLEAR)$(GREEN)Success!$(CLEAR)\n"
 
