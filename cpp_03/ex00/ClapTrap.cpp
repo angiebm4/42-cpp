@@ -6,11 +6,16 @@
 /*   By: abarrio- <abarrio-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 15:31:40 by angela            #+#    #+#             */
-/*   Updated: 2024/06/24 11:25:40 by abarrio-         ###   ########.fr       */
+/*   Updated: 2024/09/18 15:45:36 by abarrio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
+
+ClapTrap::ClapTrap()
+{
+
+}
 
 ClapTrap::ClapTrap(std::string name)
 {
@@ -19,6 +24,28 @@ ClapTrap::ClapTrap(std::string name)
     _energy = 10;
     _aaDamage = 0;
     std::cout << "ClapTrap is boorn us a guy called " << _name << std::endl;
+}
+
+ClapTrap::ClapTrap(const ClapTrap &obj)
+{
+    std::cout << "Copy constructor called" << std::endl;
+    _name = obj._name;
+    _health = obj._health;
+    _energy = obj._energy;
+    _aaDamage = obj._aaDamage;
+}
+
+ClapTrap& ClapTrap::operator=(const ClapTrap& obj)
+{
+    std::cout << "Copy assignment operator called" << std::endl;
+    if (this != &obj)
+    {
+        _name = obj._name;
+        _health = obj._health;
+        _energy = obj._energy;
+        _aaDamage = obj._aaDamage;
+    }
+    return *this;
 }
 
 ClapTrap::~ClapTrap(void)
