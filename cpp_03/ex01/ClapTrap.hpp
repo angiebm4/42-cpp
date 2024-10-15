@@ -6,7 +6,7 @@
 /*   By: abarrio- <abarrio-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 15:31:42 by angela            #+#    #+#             */
-/*   Updated: 2024/06/24 19:09:07 by abarrio-         ###   ########.fr       */
+/*   Updated: 2024/09/18 15:52:27 by abarrio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,11 @@ class   ClapTrap
         int         _aaDamage;
 
     public:
+        ClapTrap();
         ClapTrap(std::string);
-        virtual ~ClapTrap(void);
+        ClapTrap& operator=(const ClapTrap& obj);
+        ClapTrap(const ClapTrap &obj);
+        ~ClapTrap(void);
         void attack(const std::string& target);
         void takeDamage(unsigned int amount);
         void beRepaired(unsigned int amount);

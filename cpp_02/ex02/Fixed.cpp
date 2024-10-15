@@ -6,7 +6,7 @@
 /*   By: abarrio- <abarrio-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 12:18:14 by angela            #+#    #+#             */
-/*   Updated: 2024/09/18 15:03:13 by abarrio-         ###   ########.fr       */
+/*   Updated: 2024/09/18 15:22:37 by abarrio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ Fixed::~Fixed(void)
 {
     std::cout << "Destructor called" << std::endl;
 }
+
+/*-----------------------------------------------------------------------*/
 
 /* convierte un int en float dividiendo ntr  2^Fractional_Bits*/
 float Fixed::toFloat( void ) const
