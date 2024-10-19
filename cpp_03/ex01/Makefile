@@ -6,7 +6,7 @@ BLUE	=	\033[94;1m
 PINK	=	\033[95;1m
 CLEAR	=	\033[0m
 
-NAME = claptrap
+NAME = scavtrap
 
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98

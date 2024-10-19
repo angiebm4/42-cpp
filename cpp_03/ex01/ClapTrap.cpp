@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abarrio- <abarrio-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: angela <angela@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 15:31:40 by angela            #+#    #+#             */
-/*   Updated: 2024/09/18 15:45:36 by abarrio-         ###   ########.fr       */
+/*   Updated: 2024/10/19 18:56:05 by angela           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ ClapTrap::ClapTrap(std::string name)
 
 ClapTrap::ClapTrap(const ClapTrap &obj)
 {
-    std::cout << "Copy constructor called" << std::endl;
+    std::cout << "ClapTrap Copy constructor called" << std::endl;
     _name = obj._name;
     _health = obj._health;
     _energy = obj._energy;
@@ -37,7 +37,7 @@ ClapTrap::ClapTrap(const ClapTrap &obj)
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& obj)
 {
-    std::cout << "Copy assignment operator called" << std::endl;
+    std::cout << "ClapTrap Copy assignment operator called" << std::endl;
     if (this != &obj)
     {
         _name = obj._name;
@@ -67,7 +67,7 @@ void ClapTrap::attack(const std::string& target)
         this->_energy -= 1;
     }
     else
-        std::cout << _name << " is exausted let her rest" << std::endl;
+        std::cout << "ClapTrap " << _name << " is exausted let her rest" << std::endl;
 }
 
 void ClapTrap::takeDamage(unsigned int amount)

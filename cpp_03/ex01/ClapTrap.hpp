@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abarrio- <abarrio-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: angela <angela@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 15:31:42 by angela            #+#    #+#             */
-/*   Updated: 2024/09/18 15:50:35 by abarrio-         ###   ########.fr       */
+/*   Updated: 2024/10/19 18:14:33 by angela           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 class   ClapTrap
 {
-    private:
+    protected:
         std::string _name;
         int         _health;
         int         _energy;
