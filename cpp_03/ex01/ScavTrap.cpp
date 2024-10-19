@@ -6,7 +6,7 @@
 /*   By: angela <angela@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 11:27:29 by abarrio-          #+#    #+#             */
-/*   Updated: 2024/10/19 19:03:51 by angela           ###   ########.fr       */
+/*   Updated: 2024/10/19 19:05:00 by angela           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 ScavTrap::ScavTrap()
 {
-        std::cout << "ScavTrap is boorn"<< std::endl;
+    std::cout << "ScavTrap is boorn"<< std::endl;
 }
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
