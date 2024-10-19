@@ -6,7 +6,7 @@
 /*   By: angela <angela@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 15:31:40 by angela            #+#    #+#             */
-/*   Updated: 2024/10/19 18:56:05 by angela           ###   ########.fr       */
+/*   Updated: 2024/10/19 19:03:19 by angela           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 ClapTrap::ClapTrap()
 {
-
+    std::cout << "ClapTrap is boorn"<< std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name)
