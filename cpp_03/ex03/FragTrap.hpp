@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angela <angela@student.42.fr>              +#+  +:+       +#+        */
+/*   By: abarrio- <abarrio-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/19 19:06:25 by angela            #+#    #+#             */
-/*   Updated: 2024/10/19 19:46:26 by angela           ###   ########.fr       */
+/*   Updated: 2024/10/23 15:32:35 by abarrio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class FragTrap : public ClapTrap
         FragTrap(std::string);
         FragTrap& operator=(const FragTrap& obj);
         FragTrap(const FragTrap &obj);
-        ~FragTrap(void);
+        virtual ~FragTrap(void);
         
         void highFivesGuys(void);
         

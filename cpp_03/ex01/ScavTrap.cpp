@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angela <angela@student.42.fr>              +#+  +:+       +#+        */
+/*   By: abarrio- <abarrio-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 11:27:29 by abarrio-          #+#    #+#             */
-/*   Updated: 2024/10/19 19:05:00 by angela           ###   ########.fr       */
+/*   Updated: 2024/10/23 15:08:25 by abarrio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap()
+ScavTrap::ScavTrap() : ClapTrap("ClapTrap bot")
 {
     std::cout << "ScavTrap is boorn"<< std::endl;
 }
