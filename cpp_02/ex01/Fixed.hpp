@@ -6,7 +6,7 @@
 /*   By: abarrio- <abarrio-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 12:18:12 by angela            #+#    #+#             */
-/*   Updated: 2024/09/18 15:04:12 by abarrio-         ###   ########.fr       */
+/*   Updated: 2024/10/24 11:37:39 by abarrio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,9 @@ class Fixed
         int toInt( void ) const;
         
 };
-    
+
+/* Al sobrecargar este operador permite que puedas imprimir directamente una clase */
+/* utilizando la salida estandar COUT llamamos a tofloat para que sea el numero */
+/* de punto flotante casteado a float el que se imprime */
 std::ostream& operator<<(std::ostream &COUT, const Fixed &obj);
 #endif

@@ -6,7 +6,7 @@
 /*   By: abarrio- <abarrio-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 12:18:14 by angela            #+#    #+#             */
-/*   Updated: 2024/09/18 10:55:55 by abarrio-         ###   ########.fr       */
+/*   Updated: 2024/10/24 12:18:40 by abarrio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,5 @@ Fixed& Fixed::operator=(const Fixed& obj)
 
 void Fixed::setRawBits(int const raw)
 {
-    std::cout << raw << std::endl;
+    this->fp_number = raw;
 }

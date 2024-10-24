@@ -6,7 +6,7 @@
 /*   By: abarrio- <abarrio-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 12:18:14 by angela            #+#    #+#             */
-/*   Updated: 2024/09/18 15:03:13 by abarrio-         ###   ########.fr       */
+/*   Updated: 2024/10/24 12:18:30 by abarrio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ float Fixed::toFloat( void ) const
     return (float)fp_number / (1 << Fractional_Bits);
 }
 
-/* convirte de float a int moviendo los bits a la derecha por fractional:bits*/
+/* convirte de float a int moviendo los bits a la derecha por fractional_bits*/
 int Fixed::toInt( void ) const
 {
     return fp_number >> Fractional_Bits;
@@ -67,7 +67,7 @@ int Fixed::toInt( void ) const
 
 void Fixed::setRawBits(int const raw)
 {
-    std::cout << raw << std::endl;
+    this->fp_number = raw;
 }
 
 int Fixed::getRawBits(void) const
