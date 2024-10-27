@@ -13,7 +13,8 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRC =	main.cpp \
 		Animal.cpp \
-		Cat.cpp
+		Cat.cpp \
+		Dog.cpp
 
 OBJ_DIR = obj/
 OBJ = $(SRC:%.cpp=$(OBJ_DIR)%.o)
