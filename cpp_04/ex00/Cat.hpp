@@ -10,22 +10,21 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GATO_HPP
-# define GATO_HPP
+#ifndef CAT_HPP
+# define CAT_HPP
 
 # include <iostream>
 # include "Animal.hpp"
 
-class Gato : public Animal
+class Cat : public Animal
 {
     public:
-        Gato();
-        virtual ~Gato(void);
-        Gato& operator=(const Gato& obj);
-        Gato(const Gato &obj);
+        Cat();
+        virtual ~Cat(void);
+        Cat& operator=(const Cat& obj);
+        Cat(const Cat &obj);
         
-        virtual void makeSound(void);
+        void makeSound(void);
 };
-
 
 # endif

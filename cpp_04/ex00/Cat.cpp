@@ -10,30 +10,36 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Gato.hpp"
+#include "Cat.hpp"
 
-Gato::Gato()
+Cat::Cat(): Animal()
 {
-    std::cout << "Gato default constructor called" << std::endl;
-    type = "Exotic default";
+    std::cout << "Cat default constructor called" << std::endl;
+    _type = "Cat";
 }
 
-Gato::~Gato(void)
+Cat::~Cat(void)
 {
-    std::cout << "Gato destructor called" << std::endl;
+    std::cout << "Cat destructor called" << std::endl;
 }
 
-Gato::Gato(const Gato &obj)
+Cat::Cat(const Cat &obj): Animal()
 {
-    std::cout << "Gato Copy Constructor called" << std::endl;
-    type = obj.type;
+    std::cout << "Cat Copy Constructor called" << std::endl;
+    _type = obj._type;
 }
-Gato& Gato::operator=(const Gato& obj)
+
+Cat& Cat::operator=(const Cat& obj)
 {
-    std::cout << "Gato Copy assignment operator called" << std::endl;
+    std::cout << "Cat Copy assignment operator called" << std::endl;
     if (this != &obj)
     {
-        type = obj.type;
+        _type = obj._type;
     }
     return *this;
+}
+
+void Cat::makeSound(void)
+{
+    std::cout << "miau" << std::endl;
 }
