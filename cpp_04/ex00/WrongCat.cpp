@@ -1,37 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abarrio- <abarrio-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 12:18:53 by abarrio-          #+#    #+#             */
-/*   Updated: 2024/11/04 11:46:36 by abarrio-         ###   ########.fr       */
+/*   Updated: 2024/11/04 12:20:00 by abarrio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#include "WrongCat.hpp"
 
-Cat::Cat(): Animal()
+WrongCat::WrongCat(): WrongAnimal()
 {
-    std::cout << "Cat default constructor called" << std::endl;
-    _type = "Cat";
+    std::cout << "WrongCat default constructor called" << std::endl;
+    _type = "WrongCat";
 }
 
-Cat::~Cat(void)
+WrongCat::~WrongCat(void)
 {
-    std::cout << "Cat destructor called" << std::endl;
+    std::cout << "WrongCat destructor called" << std::endl;
 }
 
-Cat::Cat(const Cat &obj): Animal()
+WrongCat::WrongCat(const WrongCat &obj): WrongAnimal()
 {
-    std::cout << "Cat Copy Constructor called" << std::endl;
+    std::cout << "WrongCat Copy Constructor called" << std::endl;
     _type = obj._type;
 }
 
-Cat& Cat::operator=(const Cat& obj)
+WrongCat& WrongCat::operator=(const WrongCat& obj)
 {
-    std::cout << "Cat Copy assignment operator called" << std::endl;
+    std::cout << "WrongCat Copy assignment operator called" << std::endl;
     if (this != &obj)
     {
         _type = obj._type;
@@ -39,7 +39,7 @@ Cat& Cat::operator=(const Cat& obj)
     return *this;
 }
 
-void Cat::makeSound(void) const
+void WrongCat::makeSound(void) const
 {
-    std::cout << "miau" << std::endl;
+    std::cout << "sssssshhh" << std::endl;
 }
