@@ -15,12 +15,14 @@
 Dog::Dog(): Animal()
 {
     std::cout << "Dog default constructor called" << std::endl;
+    _Brain = new Brain();
     _type = "Dog";
 }
 
 Dog::~Dog(void)
 {
     std::cout << "Dog destructor called" << std::endl;
+    delete(_Brain);
 }
 
 Dog::Dog(const Dog &obj): Animal()

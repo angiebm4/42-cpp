@@ -6,7 +6,7 @@
 /*   By: abarrio- <abarrio-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 12:16:17 by abarrio-          #+#    #+#             */
-/*   Updated: 2024/11/04 11:47:08 by abarrio-         ###   ########.fr       */
+/*   Updated: 2024/11/12 17:51:48 by abarrio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,12 @@
 
 # include <iostream>
 # include "Animal.hpp"
+# include "Brain.hpp"
 
 class Cat : public Animal
 {
+    private:
+        Brain*  _Brain;
     public:
         Cat();
         virtual ~Cat(void);

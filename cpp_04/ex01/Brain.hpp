@@ -6,7 +6,7 @@
 /*   By: abarrio- <abarrio-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 12:30:51 by abarrio-          #+#    #+#             */
-/*   Updated: 2024/11/04 12:34:05 by abarrio-         ###   ########.fr       */
+/*   Updated: 2024/11/12 19:29:27 by abarrio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,13 @@ class Brain
         std::string    _ideas[100];
     public:
         Brain();
-        
+        ~Brain();
+        Brain& operator=(const Brain& obj);
+        Brain(const Brain &obj);
     
+    std::string getType(int);
+    void setType(std::string, int);
+
 };
 
 # endif

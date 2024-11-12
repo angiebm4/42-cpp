@@ -15,9 +15,12 @@
 
 # include <iostream>
 # include "Animal.hpp"
+# include "Brain.hpp"
 
 class Dog : public Animal
 {
+    private:
+        Brain*  _Brain;
     public:
         Dog();
         virtual ~Dog(void);
