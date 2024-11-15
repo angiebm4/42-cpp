@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abarrio- <abarrio-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 12:30:51 by abarrio-          #+#    #+#             */
-/*   Updated: 2024/11/12 19:29:27 by abarrio-         ###   ########.fr       */
+/*   Updated: 2024/11/15 09:36:13 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ class Brain
         Brain& operator=(const Brain& obj);
         Brain(const Brain &obj);
     
-    std::string getType(int);
-    void setType(std::string, int);
+    std::string getIdea(int);
+    void setIdea(std::string, int);
 
 };
 

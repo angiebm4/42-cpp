@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abarrio- <abarrio-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 12:29:55 by abarrio-          #+#    #+#             */
-/*   Updated: 2024/11/12 19:27:53 by abarrio-         ###   ########.fr       */
+/*   Updated: 2024/11/15 09:36:02 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ Brain::Brain()
 
 Brain::~Brain()
 {
-    std::cout << "Brain Default constuctor called" << std::endl;
+    std::cout << "Brain Default destructor called" << std::endl;
 }
 
 Brain::Brain(const Brain &obj)
@@ -40,12 +40,12 @@ Brain& Brain::operator=(const Brain& obj)
     return *this;
 }
 
-std::string Brain::getType(int index)
+std::string Brain::getIdea(int index)
 {
     return (_ideas[index]);
 }
 
-void    Brain::setType(std::string idea, int index)
+void    Brain::setIdea(std::string idea, int index)
 {
     _ideas[index] = idea;
 }
