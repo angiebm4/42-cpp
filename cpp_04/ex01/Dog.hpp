@@ -27,6 +27,8 @@ class Dog : public Animal
         Dog& operator=(const Dog& obj);
         Dog(const Dog &obj);
         
+        std::string getIdea(int) const;
+        void setIdea(std::string, int) const;
         void makeSound(void) const;
 };
 

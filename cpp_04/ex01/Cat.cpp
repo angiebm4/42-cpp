@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 12:18:53 by abarrio-          #+#    #+#             */
-/*   Updated: 2024/11/15 09:51:15 by marvin           ###   ########.fr       */
+/*   Updated: 2024/11/19 19:50:51 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ Cat::Cat(): Animal()
     std::cout << "Cat default constructor called" << std::endl;
     _Brain = new Brain();
     _type = "Cat";
-    setIdeaCat("uwu", 2);
 }
 
 Cat::~Cat(void)
@@ -47,12 +46,13 @@ void Cat::makeSound(void) const
     std::cout << "miau" << std::endl;
 }
 
-std::string Cat::getIdeaCat(int index) const
+std::string Cat::getIdea(int index) const
 {
+    std::cout << "cat idea nº " << index << " is: ";
     return(_Brain->getIdea(index));
 }
 
-void Cat::setIdeaCat(std::string idea, int index)
+void Cat::setIdea(std::string idea, int index) const
 {
     _Brain->setIdea(idea, index);
 }

@@ -45,3 +45,14 @@ void Dog::makeSound(void) const
 {
     std::cout << "guau" << std::endl;
 }
+
+std::string Dog::getIdea(int index) const
+{
+    std::cout << "Dog idea nº " << index << " is: ";
+    return(_Brain->getIdea(index));
+}
+
+void Dog::setIdea(std::string idea, int index) const
+{
+    _Brain->setIdea(idea, index);
+}
