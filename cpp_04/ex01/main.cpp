@@ -6,7 +6,7 @@
 /*   By: abarrio- <abarrio-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 15:31:37 by angela            #+#    #+#             */
-/*   Updated: 2024/11/20 15:55:56 by abarrio-         ###   ########.fr       */
+/*   Updated: 2024/11/20 17:19:49 by abarrio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,10 @@ int main(void)
 {
     /*const Animal* j = new Dog();
     const Animal* i = new Cat();
-    i->setIdea("uwu", 2);
-    std::cout << i->getIdea(2) << std::endl;
     delete j;//should not create a leak
     delete i;*/
-    const Animal* uwu[12];
+    
+    Animal* uwu[12];
 
     int in = 0;
     while (in < 6)

@@ -6,7 +6,7 @@
 /*   By: abarrio- <abarrio-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 12:16:17 by abarrio-          #+#    #+#             */
-/*   Updated: 2024/11/20 16:39:20 by abarrio-         ###   ########.fr       */
+/*   Updated: 2024/11/20 16:44:53 by abarrio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ class Cat : public Animal
         Cat(const Cat &obj);
         
         void makeSound(void) const;
+        std::string getIdea(int) const;
+        void setIdea(std::string, int) const;
 };
 
 # endif

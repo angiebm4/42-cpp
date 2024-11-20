@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abarrio- <abarrio-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/25 12:16:17 by abarrio-          #+#    #+#             */
-/*   Updated: 2024/11/20 16:39:20 by abarrio-         ###   ########.fr       */
+/*   Created: 2024/11/04 12:30:51 by abarrio-          #+#    #+#             */
+/*   Updated: 2024/11/15 09:36:13 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-# define CAT_HPP
+#ifndef BRAIN_HPP
+# define BRAIN_HPP
 
 # include <iostream>
-# include "Animal.hpp"
-# include "Brain.hpp"
 
-class Cat : public Animal
+class Brain
 {
     private:
-        Brain*  _brain;
+        std::string    _ideas[100];
     public:
-        Cat();
-        virtual ~Cat(void);
-        Cat& operator=(const Cat& obj);
-        Cat(const Cat &obj);
-        
-        void makeSound(void) const;
+        Brain();
+        ~Brain();
+        Brain& operator=(const Brain& obj);
+        Brain(const Brain &obj);
+    
+    std::string getIdea(int);
+    void setIdea(std::string, int);
+
 };
 
 # endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abarrio- <abarrio-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 15:26:44 by abarrio-          #+#    #+#             */
-/*   Updated: 2024/11/20 16:31:52 by abarrio-         ###   ########.fr       */
+/*   Updated: 2024/11/19 19:49:15 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ class Animal
         
         virtual void makeSound(void) const;
 
+        virtual std::string getIdea(int index) const = 0;
+        virtual void setIdea(std::string, int) const = 0;
         std::string getType(void) const;
         void setType(std::string);
         
