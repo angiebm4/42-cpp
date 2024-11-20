@@ -1,6 +1,7 @@
 #include <iostream>
 #include <stdlib.h>
 
+/* uwu */
 class Rectangulo
 {
     private:
