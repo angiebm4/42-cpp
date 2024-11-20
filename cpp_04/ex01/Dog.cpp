@@ -29,6 +29,7 @@ Dog::Dog(const Dog &obj): Animal()
 {
     std::cout << "Dog Copy Constructor called" << std::endl;
     _type = obj._type;
+    _Brain = new Brain();
 }
 
 Dog& Dog::operator=(const Dog& obj)
@@ -37,6 +38,7 @@ Dog& Dog::operator=(const Dog& obj)
     if (this != &obj)
     {
         _type = obj._type;
+        _Brain = new Brain();
     }
     return *this;
 }
