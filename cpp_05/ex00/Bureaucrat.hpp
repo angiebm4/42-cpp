@@ -15,10 +15,24 @@
 
 # include <iostream>
 
+# define GRADE_MIN 150
+# define GRADE_MAX 1
+
 class Bureaucrat
 {
     private:
         const std::string   _name;
+        int                 _grade;
+    public:
+        Bureaucrat(std::string, int);
+        ~Bureaucrat();
+        void GradeTooHighException();
+        void GradeTooLowException();
+        const std::string getName();
+        int getGrade();
+        void incrementGrade();
+        void decrementGrade();
+
 
 };
 
