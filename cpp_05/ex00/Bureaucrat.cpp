@@ -12,10 +12,10 @@
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat(const std::string name, int grade)
+Bureaucrat::Bureaucrat(const std::string name, int grade) :
+    _name(name)
 {
     std::cout << "Bureaucrat constructor called" << std::endl;
-    _name = name;
     try
     {
     /* do some stuff with bureaucrats */
