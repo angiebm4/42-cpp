@@ -18,17 +18,65 @@ Bureaucrat::Bureaucrat(const std::string name, int grade) :
     std::cout << "Bureaucrat constructor called" << std::endl;
     try
     {
-    /* do some stuff with bureaucrats */
+        if (grade < 1)
+            throw GradeTooHighException();
+        if (grade > 150)
+            throw GradeTooLowException();
     }
     catch (std::exception & e)
     {
-        /* handle exception */
+        _grade = grade;
     }
-
-    _grade = grade;
 }
 
 Bureaucrat::~Bureaucrat()
 {
     std::cout << "Bureaucrat destructor called" << std::endl;
 }
+
+void Bureaucrat::GradeTooHighException()
+{
+    std::cout << "Bureaucrat grade too high" << std::endl;
+}
+
+void Bureaucrat::GradeTooLowException()
+{
+    std::cout << "Bureaucrat grade too low" << std::endl;
+}
+
+void Bureaucrat::incrementGrade()
+{
+    try
+    {
+        if (_grade - 1 < 1)
+            throw GradeTooHighException();
+    }
+    catch (std::exception & e)
+    {
+        _grade--;
+    }
+}
+
+void Bureaucrat::decrementGrade()
+{
+    try
+    {
+        if (_grade + 1 > 150)
+            throw GradeTooLowException();
+    }
+    catch (std::exception & e)
+    {
+        _grade++;
+    }
+}
+
+const std::string Bureaucrat::getName(void)
+{
+    return(_name);
+}
+
+int Bureaucrat::getGrade(void)
+{
+    return(_grade);
+}
+

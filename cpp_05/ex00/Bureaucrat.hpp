@@ -14,6 +14,7 @@
 # define BUREAUCRAT_HPP
 
 # include <iostream>
+# include <stdexcept>
 
 # define GRADE_MIN 150
 # define GRADE_MAX 1
@@ -28,12 +29,14 @@ class Bureaucrat
         ~Bureaucrat();
         void GradeTooHighException();
         void GradeTooLowException();
-        const std::string getName();
-        int getGrade();
         void incrementGrade();
         void decrementGrade();
+        const std::string getName(void);
+        int getGrade(void);
 
 
 };
+
+std::ostream& operator<<(std::ostream &COUT, const Bureaucrat &obj);
 
 # endif
