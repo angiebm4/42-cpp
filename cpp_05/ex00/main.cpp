@@ -21,19 +21,27 @@ int main(void)
     first.incrementGrade();
     std::cout << first << std::endl;
 
+    std::cout << "..........................." << std::endl;
+
     Bureaucrat  second = Bureaucrat("second", 1);
     
     std::cout << second << std::endl;
-    first.incrementGrade();
+    second.incrementGrade();
     std::cout << second << std::endl;
+
+    std::cout << "..........................." << std::endl;
 
     Bureaucrat  thirt = Bureaucrat("thirt", 150);
     
     std::cout << thirt << std::endl;
-    first.decrementGrade();
+    thirt.decrementGrade();
     std::cout << thirt << std::endl;
 
-    
+    std::cout << "..........................." << std::endl;
 
+    Bureaucrat  cuatro = Bureaucrat("thirt", 154);
+
+    std::cout << "..........................." << std::endl;
+    
     return 0;
 }

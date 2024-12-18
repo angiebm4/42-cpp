@@ -24,19 +24,20 @@ class Bureaucrat
     private:
         const std::string   _name;
         int                 _grade;
+        friend std::ostream& operator<<(std::ostream& os, const Bureaucrat& b);
     public:
-        Bureaucrat(std::string, int);
+        Bureaucrat(const std::string, int);
         ~Bureaucrat();
-        void GradeTooHighException();
-        void GradeTooLowException();
+        std::runtime_error GradeTooHighException() throw(std::runtime_error);
+        std::runtime_error GradeTooLowException() throw(std::runtime_error);
         void incrementGrade();
         void decrementGrade();
-        const std::string getName(void);
-        int getGrade(void);
-
+        const std::string getName(void) const;
+        int getGrade(void) const;
 
 };
 
-std::ostream& operator<<(std::ostream &COUT, const Bureaucrat &obj);
+
+// std::ostream& operator<<(std::ostream &COUT, const Bureaucrat &obj);
 
 # endif
