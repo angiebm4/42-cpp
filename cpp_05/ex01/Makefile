@@ -12,7 +12,8 @@ CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRC =	main.cpp \
-		Bureaucrat.cpp
+		Bureaucrat.cpp \
+		Form.cpp
 
 OBJ_DIR = obj/
 OBJ = $(SRC:%.cpp=$(OBJ_DIR)%.o)
@@ -20,7 +21,7 @@ OBJ = $(SRC:%.cpp=$(OBJ_DIR)%.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@echo "$(PINK)Compiling the cpp05 ex00.$(CLEAR)"
+	@echo "$(PINK)Compiling the cpp05 ex01.$(CLEAR)"
 	$(CC) $(OBJ) $(CFLAGS) -o $(NAME)
 	@echo "$(GREEN)[OK]\n$(CLEAR)$(GREEN)Success!$(CLEAR)\n"
 
