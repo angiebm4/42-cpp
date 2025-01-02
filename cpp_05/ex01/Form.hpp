@@ -22,12 +22,18 @@ class Form
         const std::string   _name;
         bool                _signed;
         const int           _requiredGrade;
+        const int           _requiredGradeToExecute;
 
     public:
         Form(const std::string, int);
         ~Form();
+        std::runtime_error GradeTooHighException() throw(std::runtime_error);
+        std::runtime_error GradeTooLowException() throw(std::runtime_error);
         const std::string getName(void) const;
-        int getGrade(void) const;
+        const int getRequiredGrade(void) const;
+        const int getRequiredGradeToExecute(void) const;
+        bool getSigned(void) const;
+
 
 };
 

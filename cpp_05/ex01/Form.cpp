@@ -53,9 +53,14 @@ const std::string Form::getName(void) const
     return(_name);
 }
 
-int Form::getGrade(void) const
+const int Form::getRequiredGrade(void) const
 {
-    return(_grade);
+    return(_requiredGrade);
+}
+
+const int Form::getRequiredGradeToExecute(void) const
+{
+    return(_requiredGradeToExecute);
 }
 
 std::ostream& operator<<(std::ostream& os, const Form& b) 
