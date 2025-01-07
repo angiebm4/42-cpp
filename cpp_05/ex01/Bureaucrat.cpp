@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 #include <stdexcept>
 
 Bureaucrat::Bureaucrat(const std::string name, int grade)
@@ -75,6 +76,23 @@ void Bureaucrat::decrementGrade()
     catch(std::runtime_error& e)
     {
         std::cerr << e.what() << std::endl;
+    }
+}
+
+
+void Bureaucrat::signForm(Form& form)
+{
+    try
+    {
+        form.beSigned(*this);
+        if (form.getSigned() == false)
+            throw GradeTooLowException();
+        std::cout << getName() << " signed " << form.getName() << std::endl;
+    }
+    catch(std::runtime_error& e)
+    {
+        std::cerr << getName() << " couldn t sign " << form.getName() <<
+        " because " << e.what() << std::endl;
     }
 }
 

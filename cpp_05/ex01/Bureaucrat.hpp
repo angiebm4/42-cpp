@@ -19,6 +19,10 @@
 # define GRADE_MIN 150
 # define GRADE_MAX 1
 
+# include "Form.hpp"
+
+class Form;
+
 class Bureaucrat
 {
     private:
@@ -34,6 +38,8 @@ class Bureaucrat
         void decrementGrade();
         const std::string getName(void) const;
         int getGrade(void) const;
+        void signForm(Form& form);
+        
 };
 
 

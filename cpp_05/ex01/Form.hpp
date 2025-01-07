@@ -11,10 +11,16 @@
 /* ************************************************************************** */
 
 #ifndef FORM_HPP
-# define FORMT_HPP
+# define FORM_HPP
 
 # include <iostream>
 # include <stdexcept>
+# include "Bureaucrat.hpp"
+
+# define GRADE_MIN 150
+# define GRADE_MAX 1
+
+class Bureaucrat;
 
 class Form
 {
@@ -23,18 +29,18 @@ class Form
         bool                _signed;
         const int           _requiredGrade;
         const int           _requiredGradeToExecute;
+        friend std::ostream& operator<<(std::ostream& os, const Form& b);
 
     public:
-        Form(const std::string, int);
+        Form(const std::string, const int, const int);
         ~Form();
         std::runtime_error GradeTooHighException() throw(std::runtime_error);
         std::runtime_error GradeTooLowException() throw(std::runtime_error);
         const std::string getName(void) const;
-        const int getRequiredGrade(void) const;
-        const int getRequiredGradeToExecute(void) const;
+        int getRequiredGrade(void) const;
+        int getRequiredGradeToExecute(void) const;
         bool getSigned(void) const;
-
-
+        void beSigned(const Bureaucrat& bureaucrat);
 };
 
 # endif
