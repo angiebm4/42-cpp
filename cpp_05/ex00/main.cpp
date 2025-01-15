@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: abarrio- <abarrio-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 09:16:48 by marvin            #+#    #+#             */
-/*   Updated: 2024/11/25 10:29:59 by marvin           ###   ########.fr       */
+/*   Updated: 2025/01/15 15:50:24 by abarrio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,3 +45,6 @@ int main(void)
     
     return 0;
 }
+
+/* exsite el catch(...) que sirve para capturar cualquier execpcion se coloca al fina de la linea de catch
+es risky pero para evitar que el programa acabe de modo inesperado*/

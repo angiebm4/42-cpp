@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+
 #ifndef FORM_HPP
 # define FORM_HPP
 
@@ -34,6 +35,7 @@ class Form
     public:
         Form(const std::string, const int, const int);
         ~Form();
+        Form(const Form &obj);
         std::runtime_error GradeTooHighException() throw(std::runtime_error);
         std::runtime_error GradeTooLowException() throw(std::runtime_error);
         const std::string getName(void) const;

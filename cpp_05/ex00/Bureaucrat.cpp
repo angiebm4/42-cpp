@@ -39,6 +39,12 @@ Bureaucrat::~Bureaucrat()
     std::cout << "Bureaucrat destructor called" << std::endl;
 }
 
+Bureaucrat::Bureaucrat(const Bureaucrat &obj)
+    : _name(obj._name), _grade(obj._grade)
+{
+    std::cout << " Bureaucrat copy constructor called" << std::endl;
+}
+
 /* virtual indica que el metodo puede ser sobreescrito por clases derivadas
 const char* what() const:
 

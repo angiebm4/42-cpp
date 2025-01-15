@@ -40,6 +40,12 @@ Bureaucrat::~Bureaucrat()
     std::cout << "Bureaucrat destructor called" << std::endl;
 }
 
+Bureaucrat::Bureaucrat(const Bureaucrat &obj)
+    : _name(obj._name), _grade(obj._grade)
+{
+    std::cout << " Bureaucrat copy constructor called" << std::endl;
+}
+
 
 std::runtime_error Bureaucrat::GradeTooHighException() throw(std::runtime_error)
 {

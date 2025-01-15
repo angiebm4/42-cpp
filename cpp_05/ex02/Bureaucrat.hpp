@@ -32,6 +32,7 @@ class Bureaucrat
     public:
         Bureaucrat(const std::string, int);
         ~Bureaucrat();
+        Bureaucrat(const Bureaucrat &obj);
         std::runtime_error GradeTooHighException() throw(std::runtime_error);
         std::runtime_error GradeTooLowException() throw(std::runtime_error);
         void incrementGrade();

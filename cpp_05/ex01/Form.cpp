@@ -41,6 +41,14 @@ Form::~Form()
     std::cout << "Form destructor called" << std::endl;
 }
 
+Form::Form(const Form &obj)
+    : _name(obj._name), _signed(obj._signed),
+    _requiredGrade(obj._requiredGrade),
+    _requiredGradeToExecute(obj._requiredGradeToExecute)
+{
+    std::cout << "Form copy constructor called" << std::endl;
+}
+
 std::runtime_error Form::GradeTooHighException() throw(std::runtime_error)
 {
     throw std::runtime_error("Form too high exception");
