@@ -19,18 +19,11 @@ Bureaucrat::Bureaucrat(const std::string name, int grade)
 {
     std::cout << "Bureaucrat constructor called" << std::endl;
 
-    try
-    {
-        if (grade < GRADE_MAX)
-            throw GradeTooHighException();
-        if (grade > GRADE_MIN)
-            throw GradeTooLowException();
-        _grade = grade;
-    }
-    catch(std::runtime_error& e)
-    {
-        std::cerr << e.what() << std::endl;
-    }
+    if (grade < GRADE_MAX)
+           throw GradeTooHighException();
+    if (grade > GRADE_MIN)
+        throw GradeTooLowException();
+    _grade = grade;
 }
 
 Bureaucrat::~Bureaucrat()
@@ -44,6 +37,13 @@ Bureaucrat::Bureaucrat(const Bureaucrat &obj)
     std::cout << " Bureaucrat copy constructor called" << std::endl;
 }
 
+Bureaucrat& Bureaucrat::operator=(const Bureaucrat& obj)
+{
+    std::cout << "Copy assignment operator called" << std::endl;
+    if (this != &obj)
+        _grade = obj.getGrade();
+    return (*this);
+}
 
 std::runtime_error Bureaucrat::GradeTooHighException() throw(std::runtime_error)
 {
@@ -57,31 +57,19 @@ std::runtime_error Bureaucrat::GradeTooLowException() throw(std::runtime_error)
 
 void Bureaucrat::incrementGrade()
 {
-    try
-    {
-        if (_grade - 1 < GRADE_MAX)
-            throw GradeTooHighException();
-        _grade--;
-    }
-    catch(std::runtime_error& e)
-    {
-        std:3:endl;
-    }
-    /**/
+
+    if (_grade - 1 < GRADE_MAX)
+        throw GradeTooHighException();
+    _grade--;
+
 }
 
 void Bureaucrat::decrementGrade()
 {
-    try
-    {
-        if (_grade + 1 > GRADE_MIN)
-            throw GradeTooLowException();
-        _grade++;
-    }
-    catch(std::runtime_error& e)
-    {
-        std::cerr << e.what() << std::endl;
-    }
+    if (_grade + 1 > GRADE_MIN)
+        throw GradeTooLowException();
+    _grade++;
+
 }
 
 
@@ -112,8 +100,8 @@ int Bureaucrat::getGrade(void) const
     return(_grade);
 }
 
-std::ostream& operator<<(std::ostream& os, const Bureaucrat& b) 
+std::ostream& operator<<(std::ostream& os, const Bureaucrat& obj) 
 {
-    os << b.getName() << ", bureaucrat grade " << b.getGrade();
+    os << obj.getName() << ", bureaucrat grade " << obj.getGrade();
     return os;
 }

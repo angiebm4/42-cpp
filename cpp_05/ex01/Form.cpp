@@ -23,17 +23,11 @@ Form::Form(const std::string name, const int requiredGrade, const int requiredGr
 {
     std::cout << "Form constructor called" << std::endl;
 
-    try
-    {
-        if (requiredGrade < GRADE_MAX || requiredGradeToExecute < GRADE_MAX)
-            throw GradeTooHighException();
-        if (requiredGrade > GRADE_MIN || requiredGradeToExecute > GRADE_MIN)
-            throw GradeTooLowException();
-    }
-    catch(std::runtime_error& e)
-    {
-        std::cerr << e.what() << std::endl;
-    }
+
+    if (requiredGrade < GRADE_MAX || requiredGradeToExecute < GRADE_MAX)
+        throw GradeTooHighException();
+    if (requiredGrade > GRADE_MIN || requiredGradeToExecute > GRADE_MIN)
+        throw GradeTooLowException();
 }
 
 Form::~Form()
@@ -48,6 +42,7 @@ Form::Form(const Form &obj)
 {
     std::cout << "Form copy constructor called" << std::endl;
 }
+/* me falta el = cargado uwuw*/
 
 std::runtime_error Form::GradeTooHighException() throw(std::runtime_error)
 {
@@ -59,21 +54,12 @@ std::runtime_error Form::GradeTooLowException() throw(std::runtime_error)
     throw std::runtime_error("Form too low exception");
 }
 
-
 void Form::beSigned(const Bureaucrat& bureaucrat)
 {
-    try
-    {
-        if (bureaucrat.getGrade() >= _requiredGrade)
-            throw GradeTooLowException();
-        _signed = true;
-    }
-    catch(std::runtime_error& e)
-    {
-        std::cerr << e.what() << std::endl;
-    }
+    if (bureaucrat.getGrade() >= _requiredGrade)
+        throw GradeTooLowException();
+    _signed = true;
 }
-
 
 const std::string Form::getName(void) const
 {
@@ -95,8 +81,8 @@ bool Form::getSigned(void) const
     return(_signed);
 }
 
-std::ostream& operator<<(std::ostream& os, const Form& b) 
+std::ostream& operator<<(std::ostream& os, const Form& obj) 
 {
-    os << b.getName() << ", Form grade " << b.getRequiredGrade();
+    os << obj.getName() << ", Form grade " << obj.getRequiredGrade();
     return os;
 }

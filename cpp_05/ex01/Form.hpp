@@ -30,8 +30,7 @@ class Form
         bool                _signed;
         const int           _requiredGrade;
         const int           _requiredGradeToExecute;
-        friend std::ostream& operator<<(std::ostream& os, const Form& b);
-
+        
     public:
         Form(const std::string, const int, const int);
         ~Form();
@@ -44,5 +43,7 @@ class Form
         bool getSigned(void) const;
         void beSigned(const Bureaucrat& bureaucrat);
 };
+
+std::ostream& operator<<(std::ostream& os, const Form& obj);
 
 # endif
