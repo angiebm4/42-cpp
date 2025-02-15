@@ -1,0 +1,38 @@
+
+El método what() devuelve un puntero a una cadena de caracteres constante (const char*), 
+que contiene un mensaje descriptivo del error.
+throw(): Especifica que la función no lanzará excepciones. Aunque esto es una característica antigua de C++ 
+(obsoleta en versiones modernas), a menudo se encuentra en código legado.
+
+En este caso, what() devuelve el mensaje "Grade too high!", que será mostrado cuando la excepción sea capturada.
+
+std::exception es una clase base de la biblioteca standar de c++ diseñada para representar errores
+al heredar de esta clase puedes personalizar tus propias excepciones y sobrescribir el metodo what()
+
+Las excepciones permiten separar el flujo de control del flujo de errores del programa.
+std::exception
+bad_alloc -> new(), exception throw on failure allocation memory
+bad_cast -> exception throw on failure to dynamic cast
+bad_exception -> exception throw by unexpected handler
+bad_function_call -> exception throw on bad call
+bad_typeid -> exception throw on typeid of null pointer
+bad_weak_ptr -> bad weak pointer
+ios_base::failure -> base class for stream exceptions
+locic_error -> locic error exception 
+runtime_error -> runtime error exception
+
+throw -> encargada de lanzar la excepcion, el encargado de avisar que algo pasa
+try-> detecta las advertencias lanzadas por throw, espera para activarse una vez detectado manda
+    la advertencia a catch
+catch -> Responsable de dar una respuesta a la excepcion 
+    (puede contener varias respuesta dependiendo de la excepcion que se haya lanzado)
+    cada catch solo puede tener una excepcion pero puede haber varios bloques catch
+    todo bloque try tiene que tener inmediatamente un bloque catch a continuacion,
+    pueden haber varios bloques cada uno para manejar una excepcion posible lanzada por el throw
+    cuando se haya ejecutado el bloque catch el programa considerara que la excepcion ha sido manejada y continuara
+    ejecutandolo con normalidad.
+    suele responder a tipor de daots pero suele responder a parametros de captura, 
+    las excepciones de tipos fundamentales pueden capturarse por valor, los no fundamentales 
+    deben capturarse por referencia constante
+
+ 

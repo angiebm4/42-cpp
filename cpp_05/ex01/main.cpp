@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 09:16:48 by marvin            #+#    #+#             */
-/*   Updated: 2024/11/25 10:29:59 by marvin           ###   ########.fr       */
+/*   Updated: 2025/02/15 19:04:16 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,11 @@ int main(void)
 
     std::cout << "..........................." << std::endl;
 
-    Bureaucrat  thirt = Bureaucrat("thirt", 60);
+    Bureaucrat  thirt = Bureaucrat("thirt", 149);
     
     std::cout << thirt << std::endl;
+    thirt.decrementGrade();
+    thirt.decrementGrade();
     thirt.decrementGrade();
     std::cout << thirt << std::endl;
 

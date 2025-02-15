@@ -31,8 +31,6 @@ Bureaucrat::Bureaucrat(const std::string name, int grade)
     {
         std::cerr << e.what() << std::endl;
     }
-    
-
 }
 
 Bureaucrat::~Bureaucrat()
@@ -67,8 +65,9 @@ void Bureaucrat::incrementGrade()
     }
     catch(std::runtime_error& e)
     {
-        std::cerr << e.what() << std::endl;
+        std:3:endl;
     }
+    /**/
 }
 
 void Bureaucrat::decrementGrade()
@@ -100,6 +99,7 @@ void Bureaucrat::signForm(Form& form)
         std::cerr << getName() << " couldn t sign " << form.getName() <<
         " because " << e.what() << std::endl;
     }
+    
 }
 
 const std::string Bureaucrat::getName(void) const
