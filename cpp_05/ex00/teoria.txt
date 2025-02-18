@@ -35,4 +35,8 @@ catch -> Responsable de dar una respuesta a la excepcion
     las excepciones de tipos fundamentales pueden capturarse por valor, los no fundamentales 
     deben capturarse por referencia constante
 
- 
+ si creas dentro de un objeto algo asignado con memoria tienes que crearlo como otro objeto
+ si se lanza una excepcion dentro del constructor no se llega a construir y esa memoria no s borra
+
+exsite el catch(...) que sirve para capturar cualquier execpcion se coloca al fina de la linea de catch
+es risky pero para evitar que el programa acabe de modo inesperado

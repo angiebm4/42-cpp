@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 09:16:48 by marvin            #+#    #+#             */
-/*   Updated: 2025/02/15 22:20:17 by marvin           ###   ########.fr       */
+/*   Updated: 2025/02/18 21:57:55 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,15 +65,19 @@ int main(void)
     
     try
     {
-        Bureaucrat  cuatro = Bureaucrat("four", 14);
+        Bureaucrat  cuatro = Bureaucrat("four", 140);
         Form    doc1 = Form("Rent", 20, 40);
-    
+        
+        //std::cout << "________________________" << std::endl;
         std::cout << cuatro << std::endl;
         std::cout << doc1 << std::endl;
-        doc1.beSigned(cuatro);
+        //std::cout << "________________________" << std::endl;
         cuatro.signForm(doc1);
+        //doc1.beSigned(cuatro);
+        //std::cout << "________________________" << std::endl;
         std::cout << cuatro << std::endl;
         std::cout << doc1 << std::endl;
+        //std::cout << "________________________" << std::endl;
     }
     catch(const std::exception& e)
     {
@@ -90,7 +94,7 @@ int main(void)
         std::cout << second << std::endl;
         std::cout << doc2 << std::endl;
         second.signForm(doc2);
-        doc2.beSigned(second);
+        // doc2.beSigned(second);
         std::cout << second << std::endl;
         std::cout << doc2 << std::endl;
     }

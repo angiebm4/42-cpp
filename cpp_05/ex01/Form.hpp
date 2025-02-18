@@ -35,12 +35,13 @@ class Form
         Form(const std::string, const int, const int);
         ~Form();
         Form(const Form &obj);
+        Form& operator=(const Form& obj);
         std::runtime_error GradeTooHighException() throw(std::runtime_error);
         std::runtime_error GradeTooLowException() throw(std::runtime_error);
-        const std::string getName(void) const;
-        int getRequiredGrade(void) const;
-        int getRequiredGradeToExecute(void) const;
-        bool getSigned(void) const;
+        const std::string getName() const;
+        int getRequiredGrade() const;
+        int getRequiredGradeToExecute() const;
+        bool getSigned() const;
         void beSigned(const Bureaucrat& bureaucrat);
 };
 

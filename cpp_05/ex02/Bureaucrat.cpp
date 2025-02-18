@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 #include <stdexcept>
 
 Bureaucrat::Bureaucrat(const std::string name, int grade)
@@ -19,20 +19,11 @@ Bureaucrat::Bureaucrat(const std::string name, int grade)
 {
     std::cout << "Bureaucrat constructor called" << std::endl;
 
-    try
-    {
-        if (grade < GRADE_MAX)
-            throw GradeTooHighException();
-        if (grade > GRADE_MIN)
-            throw GradeTooLowException();
-        _grade = grade;
-    }
-    catch(std::runtime_error& e)
-    {
-        std::cerr << e.what() << std::endl;
-    }
-    
-
+    if (grade < GRADE_MAX)
+           throw GradeTooHighException();
+    if (grade > GRADE_MIN)
+        throw GradeTooLowException();
+    _grade = grade;
 }
 
 Bureaucrat::~Bureaucrat()
@@ -46,53 +37,46 @@ Bureaucrat::Bureaucrat(const Bureaucrat &obj)
     std::cout << " Bureaucrat copy constructor called" << std::endl;
 }
 
+Bureaucrat& Bureaucrat::operator=(const Bureaucrat& obj)
+{
+    std::cout << "Bureaucrat copy assignment operator called" << std::endl;
+    if (this != &obj)
+        this->_grade = obj.getGrade();
+    return (*this);
+}
 
 std::runtime_error Bureaucrat::GradeTooHighException() throw(std::runtime_error)
 {
-    throw std::runtime_error("Bureaucrat too high exception");
+    throw std::runtime_error("Grade too high exception");
 }
 
 std::runtime_error Bureaucrat::GradeTooLowException() throw(std::runtime_error)
 {
-    throw std::runtime_error("Bureaucrat too low exception");
+    throw std::runtime_error("Grade too low exception");
 }
 
 void Bureaucrat::incrementGrade()
 {
-    try
-    {
-        if (_grade - 1 < GRADE_MAX)
-            throw GradeTooHighException();
-        _grade--;
-    }
-    catch(std::runtime_error& e)
-    {
-        std::cerr << e.what() << std::endl;
-    }
+
+    if (_grade - 1 < GRADE_MAX)
+        throw GradeTooHighException();
+    _grade--;
+
 }
 
 void Bureaucrat::decrementGrade()
 {
-    try
-    {
-        if (_grade + 1 > GRADE_MIN)
-            throw GradeTooLowException();
-        _grade++;
-    }
-    catch(std::runtime_error& e)
-    {
-        std::cerr << e.what() << std::endl;
-    }
-}
+    if (_grade + 1 > GRADE_MIN)
+        throw GradeTooLowException();
+    _grade++;
 
+}
 
 void Bureaucrat::signForm(Form& form)
 {
     try
     {
         form.beSigned(*this);
-        if (form.getSigned() == false)
-            throw GradeTooLowException();
         std::cout << getName() << " signed " << form.getName() << std::endl;
     }
     catch(std::runtime_error& e)
@@ -100,20 +84,36 @@ void Bureaucrat::signForm(Form& form)
         std::cerr << getName() << " couldn t sign " << form.getName() <<
         " because " << e.what() << std::endl;
     }
+    
 }
 
-const std::string Bureaucrat::getName(void) const
+Bureaucrat::executeForm(AForm const & form)
+{
+    try
+    {
+       form.execute();
+       std::cout << getName() << " executed " << form.getName() << std::endl;
+
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << getName() << " couldn t execute " << form.getName() <<
+        " because " << e.what() << std::endl;
+    }
+}
+
+const std::string Bureaucrat::getName() const
 {
     return(_name);
 }
 
-int Bureaucrat::getGrade(void) const
+int Bureaucrat::getGrade() const
 {
     return(_grade);
 }
 
-std::ostream& operator<<(std::ostream& os, const Bureaucrat& b) 
+std::ostream& operator<<(std::ostream& os, const Bureaucrat& obj) 
 {
-    os << b.getName() << ", bureaucrat grade " << b.getGrade();
+    os << obj.getName() << ", bureaucrat grade " << obj.getGrade() << ".";
     return os;
 }

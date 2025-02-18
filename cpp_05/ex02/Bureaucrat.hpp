@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+
 #ifndef BUREAUCRAT_HPP
 # define BUREAUCRAT_HPP
 
@@ -19,7 +20,7 @@
 # define GRADE_MIN 150
 # define GRADE_MAX 1
 
-# include "Form.hpp"
+# include "AForm.hpp"
 
 class Form;
 
@@ -28,11 +29,11 @@ class Bureaucrat
     private:
         const std::string   _name;
         int                 _grade;
-        friend std::ostream& operator<<(std::ostream& os, const Bureaucrat& b);
     public:
         Bureaucrat(const std::string, int);
         ~Bureaucrat();
         Bureaucrat(const Bureaucrat &obj);
+        Bureaucrat& operator=(const Bureaucrat& obj);
         std::runtime_error GradeTooHighException() throw(std::runtime_error);
         std::runtime_error GradeTooLowException() throw(std::runtime_error);
         void incrementGrade();
@@ -40,10 +41,10 @@ class Bureaucrat
         const std::string getName(void) const;
         int getGrade(void) const;
         void signForm(Form& form);
+        executeForm(AForm const & form);
         
 };
 
-
-// std::ostream& operator<<(std::ostream &COUT, const Bureaucrat &obj);
+std::ostream& operator<<(std::ostream& os, const Bureaucrat& obj);
 
 # endif

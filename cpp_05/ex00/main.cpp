@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 09:16:48 by marvin            #+#    #+#             */
-/*   Updated: 2025/02/15 21:51:49 by marvin           ###   ########.fr       */
+/*   Updated: 2025/02/18 19:34:14 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,3 @@ int main(void)
 
     return (0);
 }
-
-/* exsite el catch(...) que sirve para capturar cualquier execpcion se coloca al fina de la linea de catch
-es risky pero para evitar que el programa acabe de modo inesperado*/

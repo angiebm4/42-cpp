@@ -34,8 +34,8 @@ class Bureaucrat
         std::runtime_error GradeTooLowException() throw(std::runtime_error);
         void incrementGrade();
         void decrementGrade();
-        const std::string getName(void) const;
-        int getGrade(void) const;
+        const std::string getName() const;
+        int getGrade() const;
 };
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& obj);

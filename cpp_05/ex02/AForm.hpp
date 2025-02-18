@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+
 #ifndef AFORM_HPP
 # define AFORM_HPP
 
@@ -22,27 +23,29 @@
 
 class Bureaucrat;
 
-class AForm
+class Form
 {
     private:
         const std::string   _name;
         bool                _signed;
         const int           _requiredGrade;
         const int           _requiredGradeToExecute;
-        friend std::ostream& operator<<(std::ostream& os, const AForm& b);
-
+        
     public:
-        AForm(const std::string, const int, const int);
-        ~AForm();
-        AForm(const AForm &obj);
+        Form(const std::string, const int, const int);
+        ~Form();
+        Form(const Form &obj);
+        Form& operator=(const Form& obj);
         std::runtime_error GradeTooHighException() throw(std::runtime_error);
         std::runtime_error GradeTooLowException() throw(std::runtime_error);
-        const std::string getName(void) const;
-        int getRequiredGrade(void) const;
-        int getRequiredGradeToExecute(void) const;
-        bool getSigned(void) const;
+        const std::string getName() const;
+        int getRequiredGrade() const;
+        int getRequiredGradeToExecute() const;
+        bool getSigned() const;
         void beSigned(const Bureaucrat& bureaucrat);
-        virtual void execute(Bureaucrat const &executor) const = 0;
+        virtual void execute(Bureaucrat const & executor) const = 0;
 };
+
+std::ostream& operator<<(std::ostream& os, const Form& obj);
 
 # endif

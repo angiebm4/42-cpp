@@ -18,9 +18,9 @@ Bureaucrat::Bureaucrat(const std::string name, int grade)
 {
     std::cout << "Bureaucrat constructor called" << std::endl;
 
-    if (grade < 1)
+    if (grade < GRADE_MAX)
         throw GradeTooHighException();
-    if (grade > 150)
+    if (grade > GRADE_MIN)
         throw GradeTooLowException();
     _grade = grade;
 }
@@ -57,7 +57,7 @@ std::runtime_error Bureaucrat::GradeTooLowException() throw(std::runtime_error)
 void Bureaucrat::incrementGrade()
 {
 
-    if (_grade - 1 < 1)
+    if (_grade - 1 < GRADE_MAX)
         throw GradeTooHighException();
     _grade--;
 
@@ -66,24 +66,24 @@ void Bureaucrat::incrementGrade()
 void Bureaucrat::decrementGrade()
 {
 
-    if (_grade + 1 > 150)
+    if (_grade + 1 > GRADE_MIN)
         throw GradeTooLowException();
     _grade++;
 
 }
 
-const std::string Bureaucrat::getName(void) const
+const std::string Bureaucrat::getName() const
 {
     return(_name);
 }
 
-int Bureaucrat::getGrade(void) const
+int Bureaucrat::getGrade() const
 {
     return(_grade);
 }
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& obj) 
 {
-    os << obj.getName() << ", bureaucrat grade " << obj.getGrade();
+    os << obj.getName() << ", bureaucrat grade " << obj.getGrade() << ".";
     return os;
 }

@@ -39,20 +39,20 @@ Bureaucrat::Bureaucrat(const Bureaucrat &obj)
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& obj)
 {
-    std::cout << "Copy assignment operator called" << std::endl;
+    std::cout << "Bureaucrat copy assignment operator called" << std::endl;
     if (this != &obj)
-        _grade = obj.getGrade();
+        this->_grade = obj.getGrade();
     return (*this);
 }
 
 std::runtime_error Bureaucrat::GradeTooHighException() throw(std::runtime_error)
 {
-    throw std::runtime_error("Bureaucrat too high exception");
+    throw std::runtime_error("Grade too high exception");
 }
 
 std::runtime_error Bureaucrat::GradeTooLowException() throw(std::runtime_error)
 {
-    throw std::runtime_error("Bureaucrat too low exception");
+    throw std::runtime_error("Grade too low exception");
 }
 
 void Bureaucrat::incrementGrade()
@@ -78,8 +78,6 @@ void Bureaucrat::signForm(Form& form)
     try
     {
         form.beSigned(*this);
-        if (form.getSigned() == false)
-            throw GradeTooLowException();
         std::cout << getName() << " signed " << form.getName() << std::endl;
     }
     catch(std::runtime_error& e)
@@ -90,18 +88,18 @@ void Bureaucrat::signForm(Form& form)
     
 }
 
-const std::string Bureaucrat::getName(void) const
+const std::string Bureaucrat::getName() const
 {
     return(_name);
 }
 
-int Bureaucrat::getGrade(void) const
+int Bureaucrat::getGrade() const
 {
     return(_grade);
 }
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& obj) 
 {
-    os << obj.getName() << ", bureaucrat grade " << obj.getGrade();
+    os << obj.getName() << ", bureaucrat grade " << obj.getGrade() << ".";
     return os;
 }
