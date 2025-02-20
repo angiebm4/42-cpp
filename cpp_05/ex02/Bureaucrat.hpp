@@ -22,7 +22,7 @@
 
 # include "AForm.hpp"
 
-class Form;
+class AForm;
 
 class Bureaucrat
 {
@@ -40,8 +40,8 @@ class Bureaucrat
         void decrementGrade();
         const std::string getName(void) const;
         int getGrade(void) const;
-        void signForm(Form& form);
-        executeForm(AForm const & form);
+        void signAForm(AForm& Aform);
+        executeAForm(AForm const & Aform);
         
 };
 

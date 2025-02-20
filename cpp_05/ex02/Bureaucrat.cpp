@@ -34,7 +34,7 @@ Bureaucrat::~Bureaucrat()
 Bureaucrat::Bureaucrat(const Bureaucrat &obj)
     : _name(obj._name), _grade(obj._grade)
 {
-    std::cout << " Bureaucrat copy constructor called" << std::endl;
+    std::cout << "Bureaucrat copy constructor called" << std::endl;
 }
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& obj)
@@ -72,32 +72,32 @@ void Bureaucrat::decrementGrade()
 
 }
 
-void Bureaucrat::signForm(Form& form)
+void Bureaucrat::signAForm(AForm& Aform)
 {
     try
     {
-        form.beSigned(*this);
-        std::cout << getName() << " signed " << form.getName() << std::endl;
+        Aform.beSigned(*this);
+        std::cout << getName() << " signed " << Aform.getName() << std::endl;
     }
     catch(std::runtime_error& e)
     {
-        std::cerr << getName() << " couldn t sign " << form.getName() <<
+        std::cerr << getName() << " couldn t sign " << Aform.getName() <<
         " because " << e.what() << std::endl;
     }
     
 }
 
-Bureaucrat::executeForm(AForm const & form)
+Bureaucrat::executeAForm(AForm const & Aform)
 {
     try
     {
-       form.execute();
-       std::cout << getName() << " executed " << form.getName() << std::endl;
+       Aform.execute();
+       std::cout << getName() << " executed " << Aform.getName() << std::endl;
 
     }
     catch(const std::exception& e)
     {
-        std::cerr << getName() << " couldn t execute " << form.getName() <<
+        std::cerr << getName() << " couldn t execute " << Aform.getName() <<
         " because " << e.what() << std::endl;
     }
 }

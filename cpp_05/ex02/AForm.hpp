@@ -23,7 +23,7 @@
 
 class Bureaucrat;
 
-class Form
+class AForm
 {
     private:
         const std::string   _name;
@@ -32,10 +32,10 @@ class Form
         const int           _requiredGradeToExecute;
         
     public:
-        Form(const std::string, const int, const int);
-        ~Form();
-        Form(const Form &obj);
-        Form& operator=(const Form& obj);
+        AForm(const std::string, const int, const int);
+        ~AForm();
+        AForm(const AForm &obj);
+        AForm& operator=(const AForm& obj);
         std::runtime_error GradeTooHighException() throw(std::runtime_error);
         std::runtime_error GradeTooLowException() throw(std::runtime_error);
         const std::string getName() const;
@@ -46,6 +46,6 @@ class Form
         virtual void execute(Bureaucrat const & executor) const = 0;
 };
 
-std::ostream& operator<<(std::ostream& os, const Form& obj);
+std::ostream& operator<<(std::ostream& os, const AForm& obj);
 
 # endif

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.cpp                                     :+:      :+:    :+:   */
+/*   AForm.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -14,11 +14,11 @@
 #include "Bureaucrat.hpp"
 #include <iostream>
 
-Form::Form(const std::string name, const int requiredGrade, const int requiredGradeToExecute)
+AForm::AForm(const std::string name, const int requiredGrade, const int requiredGradeToExecute)
     : _name(name), _signed(false) , _requiredGrade(requiredGrade)
     , _requiredGradeToExecute(requiredGradeToExecute)
 {
-    std::cout << "Form constructor called" << std::endl;
+    std::cout << "AForm constructor called" << std::endl;
 
 
     if (requiredGrade < GRADE_MAX || requiredGradeToExecute < GRADE_MAX)
@@ -27,67 +27,67 @@ Form::Form(const std::string name, const int requiredGrade, const int requiredGr
         throw GradeTooLowException();
 }
 
-Form::~Form()
+AForm::~AForm()
 {
-    std::cout << "Form destructor called" << std::endl;
+    std::cout << "AForm destructor called" << std::endl;
 }
 
-Form::Form(const Form &obj)
+AForm::AForm(const AForm &obj)
     : _name(obj._name), _signed(obj._signed),
     _requiredGrade(obj._requiredGrade),
     _requiredGradeToExecute(obj._requiredGradeToExecute)
 {
-    std::cout << "Form copy constructor called" << std::endl;
+    std::cout << "AForm copy constructor called" << std::endl;
 }
 
-Form& Form::operator=(const Form& obj)
+AForm& AForm::operator=(const AForm& obj)
 {
-    std::cout << "Form copy assignment operator called" << std::endl;
+    std::cout << "AForm copy assignment operator called" << std::endl;
 
     if (this != &obj)
         this->_signed = obj.getSigned();
     return(*this);
 }
 
-std::runtime_error Form::GradeTooHighException() throw(std::runtime_error)
+std::runtime_error AForm::GradeTooHighException() throw(std::runtime_error)
 {
     throw std::runtime_error("Grade too high exception");
 }
 
-std::runtime_error Form::GradeTooLowException() throw(std::runtime_error)
+std::runtime_error AForm::GradeTooLowException() throw(std::runtime_error)
 {
     throw std::runtime_error("Grade too low exception");
 }
 
-void Form::beSigned(const Bureaucrat& bureaucrat)
+void AForm::beSigned(const Bureaucrat& bureaucrat)
 {
     if (bureaucrat.getGrade() < _requiredGrade)
         throw GradeTooLowException();
     _signed = true;
 }
 
-const std::string Form::getName() const
+const std::string AForm::getName() const
 {
     return(_name);
 }
 
-int Form::getRequiredGrade() const
+int AForm::getRequiredGrade() const
 {
     return(_requiredGrade);
 }
 
-int Form::getRequiredGradeToExecute() const
+int AForm::getRequiredGradeToExecute() const
 {
     return(_requiredGradeToExecute);
 }
 
-bool Form::getSigned() const
+bool AForm::getSigned() const
 {
     return(_signed);
 }
 
-std::ostream& operator<<(std::ostream& os, const Form& obj) 
+std::ostream& operator<<(std::ostream& os, const AForm& obj) 
 {
-    os << obj.getName() << ", Form grade " << obj.getRequiredGrade() << ".";
+    os << obj.getName() << ", AForm grade " << obj.getRequiredGrade() << ".";
     return os;
 }
