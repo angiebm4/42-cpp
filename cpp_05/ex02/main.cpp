@@ -6,104 +6,80 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 09:16:48 by marvin            #+#    #+#             */
-/*   Updated: 2025/02/18 21:57:55 by marvin           ###   ########.fr       */
+/*   Updated: 2025/03/01 04:03:47 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
-#include "Form.hpp"
 #include <iostream>
+#include "Bureaucrat.hpp"
+#include "AForm.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
 
 int main(void)
 {
+    std::cout << "---------------------------" << std::endl << std::endl;
+
     try
     {
-        Bureaucrat  first = Bureaucrat("first", 100);
+        Bureaucrat  first = Bureaucrat("first", 7);
+        PresidentialPardonForm    doc1 = PresidentialPardonForm("home");
         
+        std::cout << ".............................." << std::endl;
         std::cout << first << std::endl;
         first.incrementGrade();
+        first.signAForm(doc1);
+        first.executeAForm(doc1);
         std::cout << first << std::endl;
+        std::cout << ".............................." << std::endl;
     }
     catch(const std::exception& e)
     {
         std::cerr << e.what() << '\n';
     }
 
-    std::cout << "..........................." << std::endl;
+    std::cout << std::endl << "---------------------------" << std::endl << std::endl;
 
     try
     {
-        Bureaucrat  second = Bureaucrat("second", 5);
-    
+        Bureaucrat  second = Bureaucrat("second", 80);
+        RobotomyRequestForm    doc2 = RobotomyRequestForm("hotel");
+        
+        std::cout << ".............................." << std::endl;
         std::cout << second << std::endl;
         second.incrementGrade();
+        second.signAForm(doc2);
+        second.executeAForm(doc2);
         std::cout << second << std::endl;
+        std::cout << ".............................." << std::endl;
     }
     catch(const std::exception& e)
     {
         std::cerr << e.what() << '\n';
     }
     
-    std::cout << "..........................." << std::endl;
+    std::cout << std::endl << "---------------------------" << std::endl << std::endl;
 
     try
     {
-        Bureaucrat  thirt = Bureaucrat("thirt", 149);
-    
-        std::cout << thirt << std::endl;
-        thirt.decrementGrade();
-        thirt.decrementGrade();
-        thirt.decrementGrade();
-        std::cout << thirt << std::endl;
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << e.what() << '\n';
-    }
-
-    std::cout << "..........................." << std::endl;
-    
-    try
-    {
-        Bureaucrat  cuatro = Bureaucrat("four", 140);
-        Form    doc1 = Form("Rent", 20, 40);
+        Bureaucrat  thirt = Bureaucrat("thirt", 10);
+        ShrubberyCreationForm    doc3 = ShrubberyCreationForm("car");
         
-        //std::cout << "________________________" << std::endl;
-        std::cout << cuatro << std::endl;
-        std::cout << doc1 << std::endl;
-        //std::cout << "________________________" << std::endl;
-        cuatro.signForm(doc1);
-        //doc1.beSigned(cuatro);
-        //std::cout << "________________________" << std::endl;
-        std::cout << cuatro << std::endl;
-        std::cout << doc1 << std::endl;
-        //std::cout << "________________________" << std::endl;
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << e.what() << '\n';
-    }
-
-    std::cout << "..........................." << std::endl;
-
-    try
-    {
-        Bureaucrat  second = Bureaucrat("second", 5);
-        Form    doc2 = Form("Rent2", 100, 80);
-    
-        std::cout << second << std::endl;
-        std::cout << doc2 << std::endl;
-        second.signForm(doc2);
-        // doc2.beSigned(second);
-        std::cout << second << std::endl;
-        std::cout << doc2 << std::endl;
+        std::cout << ".............................." << std::endl;
+        std::cout << thirt << std::endl;
+        thirt.incrementGrade();
+        thirt.signAForm(doc3);
+        thirt.executeAForm(doc3);
+        std::cout << thirt << std::endl;
+        std::cout << ".............................." << std::endl;
     }
     catch(const std::exception& e)
     {
         std::cerr << e.what() << '\n';
     }
     
-    std::cout << "..........................." << std::endl;
+    std::cout << std::endl << "---------------------------" << std::endl;
     
     return 0;
 }

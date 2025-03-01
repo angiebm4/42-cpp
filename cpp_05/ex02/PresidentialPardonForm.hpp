@@ -21,21 +21,20 @@
 # define GRADE_MIN 150
 # define GRADE_MAX 1
 
+# define REQUIRED_GRADE_SIGN 25
+# define REQUIRED_GRADE_EXEC 5
 
 class PresidentialPardonForm : public AForm
 {
+    private:
+        const std::string _target;
     public:
-        PresidentialPardonForm(): AForm();
+        PresidentialPardonForm(std::string);
         ~PresidentialPardonForm();
         PresidentialPardonForm(const PresidentialPardonForm &obj);
-        PresidentialPardonForm& operador=(PresidentialPardonForm& obj);
-        /*std::runtime_error GradeTooHighException() throw(std::runtime_error);
-        std::runtime_error GradeTooLowException() throw(std::runtime_error);
-        const std::string getName() const;
-        int getRequiredGrade() const;
-        int getRequiredGradeToExecute() const;
-        bool getSigned() const;*/
-        void execute(Bureaucrat const & executor);
+        PresidentialPardonForm& operator=(PresidentialPardonForm& obj);
+        std::string getTarget() const;
+        void execute(Bureaucrat const & executor) const;
 };
 
 # endif

@@ -36,12 +36,13 @@ class Bureaucrat
         Bureaucrat& operator=(const Bureaucrat& obj);
         std::runtime_error GradeTooHighException() throw(std::runtime_error);
         std::runtime_error GradeTooLowException() throw(std::runtime_error);
+        std::runtime_error NotSigned() throw(std::runtime_error);
         void incrementGrade();
         void decrementGrade();
         const std::string getName(void) const;
         int getGrade(void) const;
         void signAForm(AForm& Aform);
-        executeAForm(AForm const & Aform);
+        void executeAForm(AForm const &Aform);
         
 };
 

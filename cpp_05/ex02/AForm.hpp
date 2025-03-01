@@ -36,8 +36,8 @@ class AForm
         ~AForm();
         AForm(const AForm &obj);
         AForm& operator=(const AForm& obj);
-        std::runtime_error GradeTooHighException() throw(std::runtime_error);
-        std::runtime_error GradeTooLowException() throw(std::runtime_error);
+        std::runtime_error GradeTooHighException() const throw(std::runtime_error);
+        std::runtime_error GradeTooLowException() const throw(std::runtime_error);
         const std::string getName() const;
         int getRequiredGrade() const;
         int getRequiredGradeToExecute() const;

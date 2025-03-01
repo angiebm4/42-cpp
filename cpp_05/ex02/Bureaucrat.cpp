@@ -55,6 +55,11 @@ std::runtime_error Bureaucrat::GradeTooLowException() throw(std::runtime_error)
     throw std::runtime_error("Grade too low exception");
 }
 
+std::runtime_error Bureaucrat::NotSigned() throw(std::runtime_error)
+{
+    throw std::runtime_error("Form not signed");
+}
+
 void Bureaucrat::incrementGrade()
 {
 
@@ -87,12 +92,14 @@ void Bureaucrat::signAForm(AForm& Aform)
     
 }
 
-Bureaucrat::executeAForm(AForm const & Aform)
+void Bureaucrat::executeAForm(AForm const &Aform)
 {
     try
     {
-       Aform.execute();
-       std::cout << getName() << " executed " << Aform.getName() << std::endl;
+        if (Aform.getSigned() == false)
+            throw NotSigned();
+        Aform.execute(*this);
+        std::cout << getName() << " executed " << Aform.getName() << std::endl;
 
     }
     catch(const std::exception& e)

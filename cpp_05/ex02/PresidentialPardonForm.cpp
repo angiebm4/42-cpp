@@ -12,9 +12,12 @@
 
 #include "PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm(): AForm()
+PresidentialPardonForm::PresidentialPardonForm(std::string target)
+    : AForm("Presidential Pardon Form", REQUIRED_GRADE_SIGN, REQUIRED_GRADE_EXEC),
+    _target(target)
 {
     std::cout << "PresidentialPardonForm constructor called" << std::endl;
+
 }
 
 PresidentialPardonForm::~PresidentialPardonForm()
@@ -22,17 +25,32 @@ PresidentialPardonForm::~PresidentialPardonForm()
     std::cout << "PresidentialPardonForm destructor called" << std::endl;
 }
 
-PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &obj)
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &obj) : AForm(obj), _target(obj._target)
 {
     std::cout << "PresidentialPardonForm copy constructor called" << std::endl;
 }
 
-PresidentialPardonForm& PresidentialPardonForm::operador=(PresidentialPardonForm& obj)
+/* No tiene sentido poner esto son valores constantes y una vez inicializados no se pueden asignar
+PresidentialPardonForm& operator=(const PresidentialPardonForm& obj) = delete; otra opcion*/
+
+PresidentialPardonForm& PresidentialPardonForm::operator=(PresidentialPardonForm& obj)
 {
     std::cout << "PresidentialPardonForm copy assignment operator called" << std::endl;
+    (void)obj;
+    return(*this);
 }
 
-void PresidentialPardonForm::execute(Bureaucrat const & executor)
+std::string PresidentialPardonForm::getTarget() const
 {
-    
+    return(_target);
+}
+
+void PresidentialPardonForm::execute(Bureaucrat const & executor) const
+{
+    if (executor.getGrade() > REQUIRED_GRADE_EXEC)
+        throw GradeTooLowException();
+    else
+    {
+        std::cout << _target << " has been pardoned by Zaphod Beeblebrox." << std::endl;
+    }
 }

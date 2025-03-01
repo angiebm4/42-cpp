@@ -14,11 +14,9 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98
 SRC =	main.cpp \
 		Bureaucrat.cpp \
 		AForm.cpp \
+		PresidentialPardonForm.cpp \
 		ShrubberyCreationForm.cpp \
-		RobotomyRequestForm.cpp \
-		PresidentialPardonForm.cpp
-
-
+		RobotomyRequestForm.cpp
 
 OBJ_DIR = obj/
 OBJ = $(SRC:%.cpp=$(OBJ_DIR)%.o)

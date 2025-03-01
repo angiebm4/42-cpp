@@ -40,6 +40,8 @@ AForm::AForm(const AForm &obj)
     std::cout << "AForm copy constructor called" << std::endl;
 }
 
+/* No tiene sentido poner esto son valores constantes y una vez inicializados no se pueden asignar
+AForm& operator=(const AForm& obj) = delete; otra opcion*/
 AForm& AForm::operator=(const AForm& obj)
 {
     std::cout << "AForm copy assignment operator called" << std::endl;
@@ -49,19 +51,19 @@ AForm& AForm::operator=(const AForm& obj)
     return(*this);
 }
 
-std::runtime_error AForm::GradeTooHighException() throw(std::runtime_error)
+std::runtime_error AForm::GradeTooHighException() const throw(std::runtime_error)
 {
     throw std::runtime_error("Grade too high exception");
 }
 
-std::runtime_error AForm::GradeTooLowException() throw(std::runtime_error)
+std::runtime_error AForm::GradeTooLowException() const throw(std::runtime_error)
 {
     throw std::runtime_error("Grade too low exception");
 }
 
 void AForm::beSigned(const Bureaucrat& bureaucrat)
 {
-    if (bureaucrat.getGrade() < _requiredGrade)
+    if (bureaucrat.getGrade() > _requiredGrade)
         throw GradeTooLowException();
     _signed = true;
 }
@@ -85,6 +87,7 @@ bool AForm::getSigned() const
 {
     return(_signed);
 }
+
 
 std::ostream& operator<<(std::ostream& os, const AForm& obj) 
 {
