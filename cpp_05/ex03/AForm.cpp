@@ -42,6 +42,7 @@ AForm::AForm(const AForm &obj)
 
 /* No tiene sentido poner esto son valores constantes y una vez inicializados no se pueden asignar
 AForm& operator=(const AForm& obj) = delete; otra opcion*/
+
 AForm& AForm::operator=(const AForm& obj)
 {
     std::cout << "AForm copy assignment operator called" << std::endl;
