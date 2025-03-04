@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 10:00:34 by abarrio-          #+#    #+#             */
-/*   Updated: 2025/03/03 01:43:34 by marvin           ###   ########.fr       */
+/*   Updated: 2025/03/04 18:34:33 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void ScalarConverter::convert(std::string number)
         if (*endptr2 != '\0')
             throw std::runtime_error("Error: float convert fail");
 
-        char* endptr3;
+        char* endptr3;43
         errno = 0;
         double  d = std::strtod(number.c_str(), &endprt3);
         if (errno == ERANGE)

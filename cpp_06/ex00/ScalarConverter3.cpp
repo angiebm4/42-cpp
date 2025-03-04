@@ -52,16 +52,22 @@ void toChar(double value)
 
 void ScalarConverter::convert(const std::string &number)
 {
-    char* endptr;
-    errno = 0;
-    double value = std::strtod(number.c_str(), &endptr);
-    
-    if (*endptr != '\0' && std::string(endptr) != "f")
+    double value;
+
+    if (number.size() == 1 && (number[0] > 31 && number[0] < 127) && (number[0] < 48 || number[0] > 57))
+        value = number[0];
+    else
     {
-        std::cout << "Error: invalid input" << std::endl;
-        return;
+        char* endptr;
+        errno = 0;
+        value = std::strtod(number.c_str(), &endptr);
+        
+        if (*endptr != '\0' && std::string(endptr) != "f")
+        {
+            std::cout << "Error: invalid input" << std::endl;
+            return;
+        }
     }
-    
     toFloat(value);
     toDouble(value);
     toInt(value);
