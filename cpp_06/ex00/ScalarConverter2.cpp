@@ -79,12 +79,12 @@ void    toChar(int i)
 
     /* verificar si c esta dentro del rango de los char imprimibles */
     if (std::isprint(c))
-        std::cout << "char: " << c << std::endl;
+        std::cout << "char: '" << c  << "'" << std::endl;
     else
         std::cout << "char is not displayable" << std::endl;
 }
 
-void ScalarConverter::convert(std::string number)
+void ScalarConverter::convert(const std::string &number)
 {
     int i = toInt(number);
     toFloat(number);

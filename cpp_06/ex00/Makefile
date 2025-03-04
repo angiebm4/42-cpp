@@ -12,7 +12,7 @@ CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRC =	main.cpp \
-		ScalarConverter2.cpp
+		ScalarConverter3.cpp
 
 OBJ_DIR = obj/
 OBJ = $(SRC:%.cpp=$(OBJ_DIR)%.o)

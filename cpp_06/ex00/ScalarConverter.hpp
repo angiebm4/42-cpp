@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 10:00:51 by abarrio-          #+#    #+#             */
-/*   Updated: 2025/03/02 19:32:21 by marvin           ###   ########.fr       */
+/*   Updated: 2025/03/04 13:15:26 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class ScalarConverter
         ScalarConverter(const ScalarConverter &obj);
         ScalarConverter& operator=(const ScalarConverter& obj);
     public:
-        static void convert(std::string number);
+        static void convert(const std::string &number);
         /* Cuando declaras un método como static dentro de una clase en el .hpp, significa que:
             Es un método de clase, no de instancia. No necesita un objeto para ser llamado.
             Se comparte entre todas las instancias de la clase.
