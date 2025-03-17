@@ -30,8 +30,10 @@ Intern::Intern(const Intern& obj)
 
 Intern& Intern::operator=(const Intern& obj)
 {
-    *this = obj;
-    std::cout << "Intern copy assignment operator called" << std::endl;
+    if (this != &obj)
+    {
+        std::cout << "Intern copy assignment operator called" << std::endl;
+    }
     return (*this);
 }
 
