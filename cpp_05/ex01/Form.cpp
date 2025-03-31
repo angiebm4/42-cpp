@@ -64,7 +64,7 @@ std::runtime_error Form::GradeTooLowException() throw(std::runtime_error)
 
 void Form::beSigned(const Bureaucrat& bureaucrat)
 {
-    if (bureaucrat.getGrade() < _requiredGrade)
+    if (bureaucrat.getGrade() > _requiredGrade)
         throw GradeTooLowException();
     _signed = true;
 }
