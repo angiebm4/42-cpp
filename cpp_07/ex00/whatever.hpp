@@ -22,11 +22,22 @@ Type min(Type a, Type b)
     return(b);
 }
 
+template <class Type>
 Type max(Type a, Type b)
 {
     if (a >= b)
         return(a);
     return(b);
+}
+
+template <class Type>
+void swap(Type &a, Type &b)
+{
+    Type aux;
+
+    aux = a;
+    a = b;
+    b = aux;
 }
 
 # endif

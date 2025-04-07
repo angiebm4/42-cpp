@@ -11,21 +11,41 @@
 /* ************************************************************************** */
 
 #include <iostream>
-#include "whatever.hpp"
+#include <string>
+#include "iter.hpp"
 
-int main( void ) 
+void printInt(int &x)
 {
-    int a = 2;
-    int b = 3;
-    ::swap( a, b );
-    std::cout << "a = " << a << ", b = " << b << std::endl;
-    std::cout << "min( a, b ) = " << ::min( a, b ) << std::endl;
-    std::cout << "max( a, b ) = " << ::max( a, b ) << std::endl;
-    std::string c = "chaine1";
-    std::string d = "chaine2";
-    ::swap(c, d);
-    std::cout << "c = " << c << ", d = " << d << std::endl;
-    std::cout << "min( c, d ) = " << ::min( c, d ) << std::endl;
-    std::cout << "max( c, d ) = " << ::max( c, d ) << std::endl;
+    std::cout << x << " ";
+}
+
+void addOne(int &x)
+{
+    x += 1;
+}
+
+void printStr(std::string &s)
+{
+    std::cout << s << " ";
+}
+
+int main()
+{
+    int numbers[] = {10, 20, 30, 40, 50};
+    std::string words[] = {"42", "Madrid", "CPP07"};
+
+    std::cout << "Original numbers: ";
+    ::iter(numbers, 5, printInt);
+    std::cout << std::endl;
+
+    ::iter(numbers, 5, addOne);
+    std::cout << "After addOne: ";
+    ::iter(numbers, 5, printInt);
+    std::cout << std::endl;
+
+    std::cout << "Words: ";
+    ::iter(words, 3, printStr);
+    std::cout << std::endl;
+
     return 0;
 }
