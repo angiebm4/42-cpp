@@ -17,7 +17,7 @@
 # include <iostream>
 # include <cstddef>
 
-template <class Type>
+template <typename Type>
 class    Array 
 {
     private:
@@ -31,8 +31,8 @@ class    Array
         Array& operator=(const Array& obj);
         Array(const Array &obj);
 
-        Array<Type>& operator[](unsigned int index);
-        const T& operator[](unsigned int index) const; //para usar con arrays constantes
+        Type& operator[](unsigned int index);
+        const Type& operator[](unsigned int index) const; //para usar con arrays constantes
 
         unsigned int size() const; //este metodo devuve el tamaño de array al no modificar el objeto se ppone como const
         
