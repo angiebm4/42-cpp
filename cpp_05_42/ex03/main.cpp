@@ -1,0 +1,74 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: abarrio- <abarrio-@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/25 09:16:48 by marvin            #+#    #+#             */
+/*   Updated: 2025/04/16 13:50:04 by abarrio-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <iostream>
+#include "Bureaucrat.hpp"
+#include "AForm.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "Intern.hpp"
+
+int main(void)
+{
+    std::cout << "---------------------------" << std::endl << std::endl;
+
+    try
+    {
+        Intern someRandomIntern;
+        AForm* rrf;
+        rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+        std::cout << *rrf << std::endl;
+        if (rrf)
+            delete(rrf);
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+
+    std::cout << std::endl << "---------------------------" << std::endl << std::endl;
+
+    try
+    {
+        Intern someRandomIntern2;
+        AForm* rrf2;
+        rrf2 = someRandomIntern2.makeForm("uwu", "Bender");
+        std::cout << *rrf2 << std::endl;
+        if (rrf2)
+            delete(rrf2);
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+
+    std::cout << std::endl << "---------------------------" << std::endl << std::endl;
+
+    try
+    {
+        Intern someRandomIntern3;
+        AForm* rrf3;
+        rrf3 = someRandomIntern3.makeForm("presidential pardon", "Bender");
+        std::cout << *rrf3 << std::endl;
+        if (rrf3)
+            delete(rrf3);
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+
+    std::cout << std::endl << "---------------------------" << std::endl;
+    
+    return 0;
+}

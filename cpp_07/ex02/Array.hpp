@@ -6,7 +6,7 @@
 /*   By: abarrio- <abarrio-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 09:16:48 by marvin            #+#    #+#             */
-/*   Updated: 2025/04/14 16:57:07 by abarrio-         ###   ########.fr       */
+/*   Updated: 2025/04/14 17:29:15 by abarrio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,18 @@
 # define ARRAY_HPP
 
 template <class Type>
- /* prueba*/
-class    array
+
+class    array 
 {
-    
+    private:
+        
+    public:
+        Array();
+        Array(unsigned int)
+        ~Array();
+        Array& operator=(const Array& obj);
+        Array(const Array &obj);
+        
 }
 
 #endif
