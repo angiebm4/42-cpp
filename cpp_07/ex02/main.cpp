@@ -15,7 +15,6 @@
 
 int main()
 {
-
     try
     {
         Array<int> a(5);
