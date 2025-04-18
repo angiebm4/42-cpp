@@ -16,14 +16,17 @@
 # include <iostream>
 # include <vector>
 # include <stdexcept>
+# include <algorithm>
+# include <limits.h>
 
 class Span
 {
     private:
         std::vector<int> container;
-        unsigned int N;
+        unsigned int maxSize;
 
     public:
+        Span();
         Span(unsigned int);
         ~Span(void);
         Span& operator=(const Span& obj);

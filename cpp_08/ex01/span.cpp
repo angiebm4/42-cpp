@@ -12,15 +12,21 @@
 
 #include "Span.hpp"
 
+Span::Span()
+{
+    this->maxSize = 0;
+    std::cout << "Span default constructor called" << std::endl;
+}
+
 Span::Span(unsigned int N)
 {
-    this->N = N;
-    std::cout << "default constructor called" << std::endl;
+    this->maxSize = N;
+    std::cout << "Span constructor called" << std::endl;
 }
 
 Span::~Span(void)
 {
-    std::cout << "default destructor called" << std::endl;
+    std::cout << "Span destructor called" << std::endl;
 }
 
 Span& Span::operator=(const Span& obj)
@@ -33,31 +39,46 @@ Span::Span(const Span &obj)
 
 }
 
-Span::addnumber(int nb)
+Span::addNumber(int nb)
 {
-    try
-    {
-        if (container.size() <= N)
+    if (container.size() < maxSize)
             container.push_back(nb);
-    }
-    catch (const std::overflow_error& e)
+    else
+        throw(std::runtime_error("Span is full"));
+
+}
+
+int Span::shortestSpan() const
+{
+    if (container.size() < 2)
+        throw(std::runtime_error("No enought numbers in the span to compare"));
+    std::vector<int> sorted = this->container;
+
+    std::sort(sorted.begin(), sorted.end());
+
+    int min_span = INT_MAX;
+
+    std::vector<int>::iterator it = sorted.begin();
+    std::vector<int>::iterator it2 = sorted.begin() + 1;
+
+    while (it2 != sorted.end())
     {
-        std::cout << "error" << e.what() << std::endl;
+        int diff = *it2 - *it;
+        if (min_span > diff)
+            min_span = diff;
+        it++;
+        it2++;
     }
+    return(min_span);
 }
 
-int Span::shortestSpan()
+int Span::longestSpan() const
 {
-    int span;
-
+    if (container.size() < 2)
+        throw(std::runtime_error("No enought numbers in the span to compare"));
     
-    return(span)
-}
+    int min = *std::min_element(container.begin(), container.end());
+    int max = *std::max_element(container.begin(), container.end());
 
-int Span::longestSpan()
-{
-    int span;
-
-
-    return(span)
+    return(max - min);
 }
