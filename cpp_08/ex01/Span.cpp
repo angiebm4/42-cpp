@@ -31,27 +31,35 @@ Span::~Span(void)
 
 Span& Span::operator=(const Span& obj)
 {
-    this->container.insert(container.end(), obj.begin(), obj.end());
+    std::cout << "Span copy assignment operator called" << std::endl;
+    if (this != &obj)
+    {
+        this->container = obj.container;
+        this->maxSize = obj.maxSize;
+    }
+    return (*this);
 }
 
 Span::Span(const Span &obj)
+    :   container(obj.container),
+        maxSize(obj.maxSize)
 {
-
+    std::cout << "Span copy constructor called" << std::endl;
 }
 
-Span::addNumber(int nb)
+void    Span::addNumber(int nb)
 {
     if (container.size() < maxSize)
             container.push_back(nb);
     else
-        throw(std::runtime_error("Span is full"));
+        throw std::runtime_error("Span is full");
 
 }
 
 int Span::shortestSpan() const
 {
     if (container.size() < 2)
-        throw(std::runtime_error("No enought numbers in the span to compare"));
+        throw std::runtime_error("No enought numbers in the span to compare");
     std::vector<int> sorted = this->container;
 
     std::sort(sorted.begin(), sorted.end());
@@ -75,7 +83,7 @@ int Span::shortestSpan() const
 int Span::longestSpan() const
 {
     if (container.size() < 2)
-        throw(std::runtime_error("No enought numbers in the span to compare"));
+        throw std::runtime_error("No enought numbers in the span to compare");
     
     int min = *std::min_element(container.begin(), container.end());
     int max = *std::max_element(container.begin(), container.end());

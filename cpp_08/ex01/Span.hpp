@@ -32,10 +32,21 @@ class Span
         Span& operator=(const Span& obj);
         Span(const Span &obj);
         
-        addNumber(int);
+        void    addNumber(int);
         int shortestSpan() const;
         int longestSpan() const;
 
+    template    <typename Iterator>
+    void    addNumbers(Iterator begin, Iterator end)
+    {
+        while(begin != end)
+        {
+            if(container.size() >= maxSize)
+                throw std::runtime_error("Span is full");
+            container.push_back(*begin);
+            ++begin;
+        }
+    }
 };
 
 # endif

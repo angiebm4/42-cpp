@@ -10,11 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
+#include <cstdlib>
+#include <ctime>
 #include <iostream>
 #include "Span.hpp"
+#include <algorithm>
 
-int main(void)
+/* int main(void)
 {
     Span sp = Span(5);
 
@@ -28,4 +30,41 @@ int main(void)
     std::cout << sp.longestSpan() << std::endl;
 
     return (0);
+} */
+
+int main(void)
+{
+    std::srand(std::time(NULL));
+    try
+    {
+        Span    span1 = Span(10000);
+        std::vector<int> vector;
+
+        for (int i = 0; i < 10000; ++i)
+            vector.push_back(rand());
+
+        span1.addNumbers(vector.begin(), vector.end());
+        
+        clock_t start = clock();
+        std::cout << "Shortest span: " << span1.shortestSpan() << std::endl;
+        std::cout << "Longest span: " << span1.longestSpan() << std::endl;
+        clock_t end = clock();
+
+        double duration = double(end - start) / CLOCKS_PER_SEC;
+        std::cout << "Time to compute spans: " << duration << " seconds" << std::endl;
+
+        for (int i = 0; i < 100; ++i)
+            std::cout << vector[i] << " ";
+
+        std::cout << std::endl << "------------------------" << std::endl;
+
+        std::sort(vector.begin(), vector.end());
+        for (int y = 0; y < 100; ++y)
+            std::cout << vector[y] << " ";
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+    
 }
