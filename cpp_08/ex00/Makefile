@@ -20,7 +20,7 @@ SRC     = main.cpp
 OBJ_DIR = obj
 OBJ     = $(SRC:%.cpp=$(OBJ_DIR)/%.o)
 
-DEPS    = Span.hpp
+DEPS    =
 
 # ============================
 # 🧱 BUILD RULES
