@@ -11,7 +11,7 @@ CLEAR   = \033[0m
 # ============================
 # 🔧 PROJECT CONFIG
 # ============================
-NAME    = ./a.out
+NAME    = btc
 CC      = c++
 CFLAGS  = -Wall -Wextra -Werror -std=c++98
 
@@ -20,7 +20,7 @@ SRC     = main.cpp
 OBJ_DIR = obj
 OBJ     = $(SRC:%.cpp=$(OBJ_DIR)/%.o)
 
-DEPS    = MutantStack.hpp
+DEPS    = 
 
 # ============================
 # 🧱 BUILD RULES

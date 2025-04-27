@@ -1,0 +1,101 @@
+contenedores de la stl
+STL - Standard Template Library
+
+Un conenedor de c++ es una estructoura que almacena 
+colecciones de objetos (arrays, listas, pilas, etc)
+
+##########################################################
+
+std::vector
+Es una array dinamico que crece autoamticamente.
+#include <vector>
+Lo usamos cuando - si necesitas un acceso rapido por indice
+y no haces muchas inserciones, borrados en el medio
+
+push_back(valor)    - añade un valor al final
+pop_back()          - elimina el ultimo
+at(i) o vec[i]      - acceso por indice; at lanza excepcion si es invalido
+size()              - cantidad de elementos
+empty()             - si esta vacio
+clear()             - borra todos los elementos
+begin() - end()     - iteradores
+insert(pos, val)    - interta el valor en la posicion que quieras
+erase(pos)          - elimina en la posicion
+
+#include <iostream>
+#include <vector>
+
+int main(void) 
+{
+    std::vector<int> vec;
+
+    vec.push_back(10); // Añade un 10
+    vec.push_back(20); // Añade un 20
+
+    std::cout << "Tamaño: " << vec.size() << std::endl;
+    std::cout << "Primer elemento: " << vec[0] << std::endl;
+
+    vec[1] = 25; // Modifica el segundo valor
+    vec.pop_back(); // Elimina el último elemento
+
+    for (size_t i = 0; i < vec.size(); i++)
+        std::cout << vec[i] << std::endl;
+
+    return 0;
+}
+
+#################################################################
+
+std::list
+Lista doblemente enlazada
+#include <list>
+
+lo usamos cuando - tienes que ahcer muchas inserciones/borrados
+en medio de la listas
+
+push_back(val)      - Añade un valor al final de la lista
+push_front(val)     - Añade un valor al principio de la lista
+pop_back()          - Elimina el ultimo elemento de la lista
+pop_front()         - Elimina el primer elemento de la lista
+insert(it, val)     - Inserta antes del iterador it
+erase(it)           - Elimina en posicion
+begin() - end()     - Iteradores
+size()              - Tamaño de la lista
+empty()             - Ver si esta vacia la lista
+clear()             - Borra la lista
+sort()              - ordena (como ordena?)
+
+#include <iostream>
+#include <list>
+
+int main() 
+{
+    std::list<int> myList;
+
+    myList.push_back(3);
+    myList.push_front(1);
+    myList.insert(++myList.begin(), 2); // Inserta 2 en la segunda posición
+
+    for (std::list<int>::iterator it = myList.begin(); it != myList.end(); ++it)
+        std::cout << *it << " "; // 1 2 3
+
+    return 0;
+}
+
+##########################################################################################
+
+std::deque
+
+Array doble extremo eficiente en ambos lados 
+#include <deque>
+
+cuando usarla - cuando necesitas insertar o borrar rapido al inicio
+y al final (como una cola o bufer circular)
+
+
+push_back(val)      - Añade un valor al final de la lista
+push_front(val)     - Añade un valor al principio de la lista
+pop_back()          - Elimina el ultimo elemento de la lista
+pop_front()         - Elimina el primer elemento de la lista
+deque[i]            - Acceso por indice
+
