@@ -9,26 +9,3 @@
 /*   Updated: 2024/12/04 10:42:44 by abarrio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <iostream>
-#include <stdexcept>
-
-int main(int argc, char*argv[])
-{
-    if (argc != 2)
-    {
-        std::cerr << "Error: Only one argument accepted" << std::endl;
-        return 1;
-    }
-
-    try
-    {
-        
-
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << e.what() << '\n';
-    }
-    return 0;
-}

@@ -50,7 +50,7 @@ std::list
 Lista doblemente enlazada
 #include <list>
 
-lo usamos cuando - tienes que ahcer muchas inserciones/borrados
+lo usamos cuando - tienes que hacer muchas inserciones/borrados
 en medio de la listas
 
 push_back(val)      - Añade un valor al final de la lista
@@ -99,3 +99,34 @@ pop_back()          - Elimina el ultimo elemento de la lista
 pop_front()         - Elimina el primer elemento de la lista
 deque[i]            - Acceso por indice
 
+
+std::map
+
+es una estructura de datos que guarda pares de elementos
+#include <map>
+- Una clave (Key): lo que usas para buscar
+- un valor (value): Lo que quieres guardar o asociar a esa clave
+
+Sirve para
+- Guardar cosas con un identificador unico
+- Buscar rapidamente por ese identificador
+- Actualizar datos sin recorrer todo
+- Mantener el contenido ordenado por clave
+
+insert()                - Inserta un par de clave-valor
+find(clave)             - Devuelve un iterador a la clave
+erase(clave)            - Borra un elemento
+[](acceso por clave)    - Inserta si no existe accede si si
+Size()                  - Cuantos elementos tiene
+empyty()                - Te dice si esta vacio o no
+clear()                 - Borra todo el contenido
+
+iterar por un map
+for (std::map<std::string, int>::iterator it = edades.begin(); it != edades.end(); ++it)
+{
+    std::cout << it->first << " tiene " << it->second << " años" << std::endl;
+}
+
+- Las claves no se repiten.
+- Están siempre ordenadas automáticamente (por <).
+- Se puede acceder a cualquier clave rápidamente.

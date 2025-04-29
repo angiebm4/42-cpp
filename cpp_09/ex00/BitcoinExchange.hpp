@@ -10,25 +10,21 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <stdexcept>
+#ifndef BITCOINEXCHANGE_HPP
+# define BITCOINEXCHANGE_HPP
 
-int main(int argc, char*argv[])
+# include <iostream>
+
+class BitcoinExchange
 {
-    if (argc != 2)
-    {
-        std::cerr << "Error: Only one argument accepted" << std::endl;
-        return 1;
-    }
+    private:
 
-    try
-    {
-        
+    public:
+        BitcoinExchange();
+        ~BitcoinExchange();
+        BitcoinExchange(const BitcoinExchange &obj);
+        BitcoinExchange operator=(const BitcoinExchange& obj);
 
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << e.what() << '\n';
-    }
-    return 0;
-}
+};
+
+# endif
