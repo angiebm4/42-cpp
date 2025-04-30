@@ -15,6 +15,13 @@
 
 # include <iostream>
 # include <map>
+# include <stdexcept>
+# include <fstream>
+# include <string>
+# include <ctime>
+
+# define MIN_VALUE 0.0f
+# define MAX_VALUE 1000.0f
 
 class BitcoinExchange
 {
@@ -25,6 +32,7 @@ class BitcoinExchange
         ~BitcoinExchange();
         BitcoinExchange(const BitcoinExchange &obj);
         BitcoinExchange operator=(const BitcoinExchange& obj);
+        void makeDataBase(const std::string& file);
 };
 
 # endif

@@ -53,6 +53,10 @@
         "ratio": "cpp",
         "iomanip": "cpp",
         "ranges": "cpp",
-        "sstream": "cpp"
+        "sstream": "cpp",
+        "charconv": "cpp",
+        "format": "cpp",
+        "span": "cpp",
+        "variant": "cpp"
     }
 }
