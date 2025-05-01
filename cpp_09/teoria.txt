@@ -130,3 +130,4 @@ for (std::map<std::string, int>::iterator it = edades.begin(); it != edades.end(
 - Las claves no se repiten.
 - Están siempre ordenadas automáticamente (por <).
 - Se puede acceder a cualquier clave rápidamente.
+

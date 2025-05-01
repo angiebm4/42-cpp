@@ -116,3 +116,7 @@ BitcoinExchange BitcoinExchange::operator=(const BitcoinExchange& obj)
     return *this;
 }
 
+std::map<std::string, float> BitcoinExchange::getDataBase()
+{
+    return dataBase;
+}

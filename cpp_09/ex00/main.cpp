@@ -25,6 +25,14 @@
     - El string tiene formato YYYY-MM-DD y mide 10 
     - La fecha es real desde 1900, y existe en el calendario
     - La fecha es del pasado o presente, no del futuro
+
+    lower_bound(key)
+    - Metodo que te devuelve un iterator que apunta
+      al elemento cuya clave es = o inmediatamente
+      mayor de la key que le pases
+    
+    it->first para acceder al primer valor
+    it->second para acceder al segundo valor
     */
 
 
@@ -47,9 +55,6 @@ int main(int argc, char*argv[])
         std::cerr << "Error: " << argv[1] << " file, cant open" << std::endl;
         return 1;
     }
-
-
-
 
     try
     {
