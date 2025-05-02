@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: abarrio- <abarrio-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 09:16:48 by marvin            #+#    #+#             */
-/*   Updated: 2025/03/05 00:02:54 by marvin           ###   ########.fr       */
+/*   Updated: 2025/05/02 14:18:52 by abarrio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int main(int argc, char* argv[])
 {
     if (argc != 2)
     {
-        std::cerr << "invalid input 2 many argss" << std::endl;
+        std::cerr << "Error: invalid number of arguments" << std::endl;
         return (1);
     }
     std::cout << std::endl << "---> ARG TEST <---" << std::endl;
@@ -45,8 +45,11 @@ int main(int argc, char* argv[])
     std::cout << std::endl << "---> 0 TEST <---" << std::endl;
     ScalarConverter::convert("0");
     std::cout << std::endl;
-    std::cout << std::endl << "---> c TEST <---" << std::endl;
-    ScalarConverter::convert("c");
+    std::cout << std::endl << "---> C TEST <---" << std::endl;
+    ScalarConverter::convert("C");
+    std::cout << std::endl;
+    std::cout << std::endl << "---> 42.0f TEST <---" << std::endl;
+    ScalarConverter::convert("42.0f");
     std::cout << std::endl;
     return 0;
 }

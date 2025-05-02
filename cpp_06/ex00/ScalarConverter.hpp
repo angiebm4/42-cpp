@@ -3,19 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: abarrio- <abarrio-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 10:00:51 by abarrio-          #+#    #+#             */
-/*   Updated: 2025/03/04 13:15:26 by marvin           ###   ########.fr       */
+/*   Updated: 2025/05/02 14:33:04 by abarrio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /* Un tipo escalar es un tipo de dato simple que  contiene un valor unico*/
 
 #ifndef SCALARCONVERTER_HPP
-# define SCARLARCONVERTER_HPP
+# define SCALARCONVERTER_HPP
 
 # include <iostream>
+
+enum Type
+{
+    TYPE_CHAR,
+    TYPE_INT,
+    TYPE_FLOAT,
+    TYPE_DOUBLE,
+    TYPE_SPECIAL,
+    TYPE_INVALID
+};
 
 class ScalarConverter
 {

@@ -109,8 +109,6 @@ int main(int argc, char*argv[])
     try
     {
         parseFile(exchange, file);
-        
-
     }
     catch(const std::exception& e)
     {

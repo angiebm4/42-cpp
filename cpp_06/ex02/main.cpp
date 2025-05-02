@@ -6,7 +6,7 @@
 /*   By: abarrio- <abarrio-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 09:16:48 by marvin            #+#    #+#             */
-/*   Updated: 2025/03/17 16:49:02 by abarrio-         ###   ########.fr       */
+/*   Updated: 2025/05/02 16:26:14 by abarrio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ Base* generate(void)
 
 void identify(Base* p)
 {
-    if(dynamic_cast<A*>(p))
+    if(dynamic_cast<A*>(p))  // Si se puede castear a A*
         std::cout << "A" << std::endl;
     else if (dynamic_cast<B*>(p))
         std::cout << "B" << std::endl;
@@ -55,6 +55,8 @@ void identify(Base& p)
 {
     try
     {
+        // cuando el dynamic_cast falla con referencias →
+        // lanza una excepción → así es como se detecta si es esa clase o no.
         (void)dynamic_cast<A&>(p); // si falla lanza execpcion  std::bad_cast
         std::cout << "Reference identify as A classs" << std::endl;
         return ;
