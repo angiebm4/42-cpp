@@ -32,8 +32,10 @@ class BitcoinExchange
         ~BitcoinExchange();
         BitcoinExchange(const BitcoinExchange &obj);
         BitcoinExchange operator=(const BitcoinExchange& obj);
-        void makeDataBase(const std::string& file);
-        std::map<std::string, float> getDataBase();
+        void    makeDataBase(const std::string& file);
+        std::map<std::string, float>    getDataBase();
+        void    exchangeData(std::string line);
+        float   calculateNewRate(std::string date, float rate);
 };
 
 # endif

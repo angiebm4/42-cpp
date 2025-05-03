@@ -41,28 +41,33 @@ int main(int argc, char*argv[])
 {
     if (argc != 2)
     {
-        std::cerr << "Error: Only one argument accepted" << std::endl;
+        std::cerr << "Error: could not open file." << std::endl;
         return 1;
     }
 
     BitcoinExchange exchange;
-
     std::ifstream   file(argv[1]);
     
-
     if (!file.is_open())
     {
-        std::cerr << "Error: " << argv[1] << " file, cant open" << std::endl;
+        std::cerr << "Error: " << argv[1] << " file, cant open." << std::endl;
         return 1;
     }
 
     try
     {
+        std::string line;
+        std::getline(file, line);
 
+        if (line != "date | value")
+            throw std::runtime_error("Invalid file Header");
+
+        while (std::getline(file, line))
+            exchange.exchangeData(line);
     }
     catch(const std::exception& e)
     {
-        std::cerr << e.what() << '\n';
+        std::cerr << "Error: " << e.what() << '\n';
     }
     return 0;
 }

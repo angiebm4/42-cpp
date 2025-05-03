@@ -56,12 +56,18 @@ bool    isValidDate(const std::string& date)
     return true;
 }
 
-bool isValidRate(const std::string& str, float& outValue)
+void isValidRate(const std::string& str, float& outValue, int flag)
 {
     outValue = atof(str.c_str());
-    if (outValue < MIN_VALUE || outValue > MAX_VALUE)
-        return false;
-    return true;
+
+    if (flag == 0 && outValue < MIN_VALUE)
+        throw std::runtime_error("not a positive number.");
+    else if (flag == 0 && outValue > MAX_VALUE)
+        throw std::runtime_error("too large a number.");
+    else if (flag == 1 && outValue < MIN_VALUE)
+        throw std::runtime_error("negative rate, in data base");
+    else
+        return ;
 }
 
 void    BitcoinExchange::makeDataBase(const std::string& fileName)
@@ -69,14 +75,14 @@ void    BitcoinExchange::makeDataBase(const std::string& fileName)
     std::ifstream   file(fileName.c_str());
 
     if (!file.is_open())
-        throw std::runtime_error("Error: data.csv file, cant open");
+        throw std::runtime_error("data.csv file, cant open");
 
     std::string line;
     
     std::getline(file, line);
 
     if (line != "date,exchange_rate")
-        throw std::runtime_error("Error: Invalid file Header");
+        throw std::runtime_error("Invalid file Header");
 
     while(std::getline(file, line))
     {
@@ -89,8 +95,7 @@ void    BitcoinExchange::makeDataBase(const std::string& fileName)
         std::string date = line.substr(0, pos);
         std::string rateStr = line.substr(pos + 1);
 
-        if (!isValidRate(rateStr, rate))
-            throw std::runtime_error("Invalid rate, in data base");
+        isValidRate(rateStr, rate, 1);
 
         if (!isValidDate(date))
             throw std::runtime_error("Invalid date, in data base");
@@ -119,4 +124,71 @@ BitcoinExchange BitcoinExchange::operator=(const BitcoinExchange& obj)
 std::map<std::string, float> BitcoinExchange::getDataBase()
 {
     return dataBase;
+}
+/*
+    - Si la clave exacta existe → usar ese valor.
+    - Si no existe → usar la clave anterior más cercana 
+        (la más grande que sea menor que date).
+*/
+
+float   BitcoinExchange::calculateNewRate(std::string date, float rate)
+{
+    float newRate;
+    std::map<std::string, float>::iterator it = dataBase.lower_bound(date);
+
+    // Clave exacta existe
+    if (it != dataBase.end() && it->first == date)
+        newRate = it->second;
+    // Clave
+    else if (it == dataBase.begin())
+        newRate = it->second;
+    // Clave no existe
+    else
+    {
+        --it;
+        newRate = it->second;
+    }
+
+    return rate * newRate;
+}
+
+std::string removeSpaces(const std::string& str)
+{
+    std::string result;
+
+    for (size_t i = 0; i < str.length(); ++i)
+    {
+        if (str[i] != ' ')
+            result += str[i];
+    }
+    return result;
+}
+
+void    BitcoinExchange::exchangeData(const std::string line)
+{
+    try
+    {
+        float rate = 0;
+        size_t pos = line.find('|');
+
+        if (pos == std::string::npos)
+            throw std::runtime_error("There is not a separator in line");
+
+        std::string date = line.substr(0, pos - 1);
+        std::string rateStr = line.substr(pos + 2);
+
+        isValidRate(rateStr, rate, 0);
+
+        if (!isValidDate(date))
+            throw std::runtime_error("bad input => " + date);
+
+        float newRate = calculateNewRate(date, rate);
+
+        std::cout << date << " => " << rate << " = " << newRate << std::endl;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << "Error: " << e.what() << '\n';
+    }
+    
 }
