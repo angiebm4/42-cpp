@@ -6,7 +6,7 @@
 /*   By: abarrio- <abarrio-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 09:16:48 by marvin            #+#    #+#             */
-/*   Updated: 2025/04/30 15:29:08 by abarrio-         ###   ########.fr       */
+/*   Updated: 2025/05/13 14:24:44 by abarrio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <fstream>
 # include <string>
 # include <ctime>
+#include <cstdlib>
 
 # define MIN_VALUE 0.0f
 # define MAX_VALUE 1000.0f

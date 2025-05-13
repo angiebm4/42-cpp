@@ -6,7 +6,7 @@
 /*   By: abarrio- <abarrio-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 09:16:48 by marvin            #+#    #+#             */
-/*   Updated: 2025/04/30 11:23:28 by abarrio-         ###   ########.fr       */
+/*   Updated: 2025/05/13 14:41:29 by abarrio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ bool    isFormatOk(const std::string& date)
 {
     if (date.length() != 10)
         return false;
-    for(int i = 0; i < date.length(); i++)
+    for(size_t i = 0; i < date.length(); i++)
     {
         if (i == 4 || i == 7)
         {
@@ -56,9 +56,10 @@ bool    isValidDate(const std::string& date)
     return true;
 }
 
-void isValidRate(const std::string& str, float& outValue, int flag)
+/*void isValidRate(const std::string& str, float& outValue, int flag)
 {
-    outValue = atof(str.c_str());
+    outValue = std::atof(str.c_str());
+    std::cout << "============= " << outValue << " ========== " << std::endl;
 
     if (flag == 0 && outValue < MIN_VALUE)
         throw std::runtime_error("not a positive number.");
@@ -68,6 +69,32 @@ void isValidRate(const std::string& str, float& outValue, int flag)
         throw std::runtime_error("negative rate, in data base");
     else
         return ;
+}*/
+
+bool isValidRate(const std::string& str, float& outValue, int flag)
+{
+    const char* s = str.c_str();
+    char* end = NULL;
+
+    // Convierte a double y guarda el final leído
+    double val = std::strtod(s, &end); // si usas atof si falla te dara 0 y no hay forma de saber si era un 0 de vd
+
+    // 	No se pudo leer ni un dígito || Quedó texto no numérico → error
+    if (end == s || *end != '\0') // No se convirtió nada, o quedó basura al final
+        return false;
+
+    // 	Convierte double a float
+    outValue = static_cast<float>(val);
+
+    // std::cout << "============= " << outValue << " ========== " << std::endl;
+
+    if (flag == 0 && outValue < MIN_VALUE)
+        throw std::runtime_error("not a positive number.");
+    else if (flag == 0 && outValue > MAX_VALUE)
+        throw std::runtime_error("too large a number.");
+    else if (flag == 1 && outValue < MIN_VALUE)
+        throw std::runtime_error("negative rate, in data base");
+    return true;
 }
 
 void    BitcoinExchange::makeDataBase(const std::string& fileName)
@@ -95,7 +122,8 @@ void    BitcoinExchange::makeDataBase(const std::string& fileName)
         std::string date = line.substr(0, pos);
         std::string rateStr = line.substr(pos + 1);
 
-        isValidRate(rateStr, rate, 1);
+        if (!isValidRate(rateStr, rate, 1))
+            throw std::runtime_error("bad input => " + line);
 
         if (!isValidDate(date))
             throw std::runtime_error("Invalid date, in data base");
@@ -172,12 +200,14 @@ void    BitcoinExchange::exchangeData(const std::string line)
         size_t pos = line.find('|');
 
         if (pos == std::string::npos)
-            throw std::runtime_error("There is not a separator in line");
+            throw std::runtime_error("bad input => " + line);
 
         std::string date = line.substr(0, pos - 1);
         std::string rateStr = line.substr(pos + 2);
+        // std::cout << "------------- " << rateStr << " ------------------ " << std::endl;
 
-        isValidRate(rateStr, rate, 0);
+        if (!isValidRate(rateStr, rate, 0))
+            throw std::runtime_error("bad input => " + line);
 
         if (!isValidDate(date))
             throw std::runtime_error("bad input => " + date);
