@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   RPN.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abarrio- <abarrio-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 09:16:48 by marvin            #+#    #+#             */
-/*   Updated: 2025/05/13 14:04:56 by abarrio-         ###   ########.fr       */
+/*   Updated: 2025/05/17 17:30:47 by abarrio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,21 @@
 # include <string>
 # include <iostream>
 # include <stack>
+# include <cstdlib>
 
-class  RPM
+class  RPN
 {
     private:
         std::stack<int> _container;
         
     public:
-        RPM();
-        ~RPM();
-        RPM(const  RPM &obj);
-        RPM operator=(const  RPM& obj);
+        RPN();
+        ~RPN();
+        RPN(const  RPN &obj);
+        RPN& operator=(const  RPN& obj);
         void addNb(std::string nb);
         void applyOperator(std::string op);
+        void checkStack();
 
 };
 
