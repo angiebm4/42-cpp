@@ -1,3 +1,17 @@
+ std::istringstream 
+    - Te permite tratar una cadena como si fuera un stream de entrada
+
+🔹 std::cin → lee datos del teclado
+🔹 std::ifstream → lee datos de un archivo
+🔹 std::istringstream → lee datos desde una cadena de texto
+
+std::istringstream iss("123");
+int value;
+iss >> value;
+
+El operador >> lee caracteres de la cadena uno a uno internamente, hasta formar un número válido para asignarlo a value.
+
+
 contenedores de la stl
 STL - Standard Template Library
 
