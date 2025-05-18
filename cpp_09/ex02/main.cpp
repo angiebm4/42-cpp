@@ -24,7 +24,9 @@ int main(int argc, char* argv[])
         return 1;
     }
 
-    PmergeMe    obj;
+    PmergeMe    obj(argv);
+
+
     
     return 0;
 }

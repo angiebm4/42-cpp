@@ -33,6 +33,8 @@ class  PmergeMe
         PmergeMe(const  PmergeMe &obj);
         PmergeMe& operator=(const  PmergeMe& obj);
         void    initContainers(char* argv[]);
+        void    mergeInsertSortDeque(std::deque<int>& d);
+        void    mergeInsertSortList(std::list<int>& d);
 };
 
 # endif
