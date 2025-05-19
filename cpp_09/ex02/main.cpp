@@ -6,7 +6,7 @@
 /*   By: abarrio- <abarrio-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 09:16:48 by marvin            #+#    #+#             */
-/*   Updated: 2025/05/17 19:30:39 by abarrio-         ###   ########.fr       */
+/*   Updated: 2025/05/19 17:14:44 by abarrio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ int main(int argc, char* argv[])
     }
 
     PmergeMe    obj(argv);
+
+    obj.doS();
 
 
     
