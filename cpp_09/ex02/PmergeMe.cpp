@@ -6,7 +6,7 @@
 /*   By: abarrio- <abarrio-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 09:16:48 by marvin            #+#    #+#             */
-/*   Updated: 2025/05/19 17:20:04 by abarrio-         ###   ########.fr       */
+/*   Updated: 2025/05/21 13:10:09 by abarrio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,10 +95,10 @@ PmergeMe& PmergeMe::operator=(const  PmergeMe& obj)
     return *this;
 }
 
-void printDeque(const std::deque<int>& d, const std::string& label = "")
+void printDeque(const std::deque<int>& d, const std::string& msg = "")
 {
-    if (!label.empty())
-        std::cout << label << ": ";
+    if (!msg.empty())
+        std::cout << msg << ": ";
 
     for (std::deque<int>::const_iterator it = d.begin(); it != d.end(); ++it)
         std::cout << *it << " ";
@@ -106,31 +106,33 @@ void printDeque(const std::deque<int>& d, const std::string& label = "")
     std::cout << std::endl;
 }
 
-void    PmergeMe::mergeInsertSortDeque(std::deque<int>& container)
+
+
+void    PmergeMe::mergeInsertSortDeque(std::deque<int>& containerD)
 {
     // Si solo tiene un elemento ya esta ordenado
-    if (container.size() <= 1)
+    if (containerD.size() <= 1)
         return ;
 
-    printDeque(container, "uwu ->");
+    // printDeque(containerD, "uwu ->");
 
     // Divide la secuencia en pares y ordena cada par
     std::deque<std::pair<int, int> >     pairs;
     std::deque<int>                     unpair;
     size_t i = 0;
 
-    while (i < container.size())
+    while (i < containerD.size())
     {
-        if (i + 1 < container.size())
+        if (i + 1 < containerD.size())
         {
-            int a = container[i];
-            int b = container[i + 1];
+            int a = containerD[i];
+            int b = containerD[i + 1];
             if (a > b)
                 std::swap(a, b);
             pairs.push_back(std::make_pair(a, b));
         }
         else
-            unpair.push_back(container[i]);
+            unpair.push_back(containerD[i]);
         i += 2;
     }
     // separa los mayores de cada par (estos se ordenan recursivamente)
@@ -143,7 +145,8 @@ void    PmergeMe::mergeInsertSortDeque(std::deque<int>& container)
 
     // Insertar los menores uno a uno
     // Los menores se insertan uno a uno en el sitio correcto
-    for (size_t i = 0; i < pairs.size(); ++i) {
+    for (size_t i = 0; i < pairs.size(); ++i) 
+    {
         int toInsert = pairs[i].first;
         std::deque<int>::iterator pos = std::lower_bound(sorted.begin(), sorted.end(), toInsert);
         sorted.insert(pos, toInsert);
@@ -151,15 +154,86 @@ void    PmergeMe::mergeInsertSortDeque(std::deque<int>& container)
 
     // Insertar el sobrante si había alguno
     // Si hay un elemento sin pareja tambien se inserta
-    if (!unpair.empty()) {
+    if (!unpair.empty()) 
+    {
         int last = unpair.front();
         std::deque<int>::iterator pos = std::lower_bound(sorted.begin(), sorted.end(), last);
         sorted.insert(pos, last);
     }
 
 
-    container = sorted;
-    printDeque(container, "owo ->");
+    containerD = sorted;
+    //printDeque(containerD, "owo ->");
+}
+
+void printList(const std::list<int>& l, const std::string& msg = "")
+{
+    if (!msg.empty())
+        std::cout << msg << ": ";
+
+    for (std::list<int>::const_iterator it = l.begin(); it != l.end(); ++it)
+        std::cout << *it << " ";
+
+    std::cout << std::endl;
+}
+
+void PmergeMe::insertInSortedList(std::list<int>& sorted, int value)
+{
+    std::list<int>::iterator it = sorted.begin();
+    while (it != sorted.end() && *it < value)
+        ++it;
+
+    sorted.insert(it, value);
+}
+
+void PmergeMe::mergeInsertSortList(std::list<int>& containerL)
+{
+    // 1. Caso base
+    if (containerL.size() <= 1)
+        return;
+
+    // 2. Dividir en pares y ordenarlos internamente
+    std::list<std::pair<int, int> > pairs;
+    std::list<int> unpaired;
+
+    std::list<int>::iterator it = containerL.begin();
+
+    while (it != containerL.end())
+    {
+        int a = *it;
+        ++it;
+
+        if (it != containerL.end()) 
+        {
+            int b = *it;
+            ++it;
+
+            if (a > b)
+                std::swap(a, b);
+            pairs.push_back(std::make_pair(a, b));
+        } 
+        else
+            unpaired.push_back(a); // elemento sin pareja
+    }
+
+    // 3. Extraer mayores y ordenarlos recursivamente
+    std::list<int> sorted;
+
+    for (std::list<std::pair<int, int> >::iterator pit = pairs.begin(); pit != pairs.end(); ++pit)
+        sorted.push_back(pit->second);
+
+    mergeInsertSortList(sorted); // recursivo sobre los máximos
+
+    // 4. Insertar menores uno a uno
+    for (std::list<std::pair<int, int> >::iterator pit = pairs.begin(); pit != pairs.end(); ++pit)
+        insertInSortedList(sorted, pit->first);
+
+    // 5. Insertar sobrante si lo hay
+    if (!unpaired.empty())
+        insertInSortedList(sorted, unpaired.front());
+
+    // 6. Reemplazar la lista original
+    containerL = sorted;
 }
 
 void PmergeMe::doS()
@@ -169,15 +243,19 @@ void PmergeMe::doS()
     clock_t start = clock();
     mergeInsertSortDeque(_deque);
     clock_t end = clock();
+    
+    printDeque(_deque, "End deque -> ");
 
     double time = static_cast<double>(end - start) / CLOCKS_PER_SEC * 1000000;
     std::cout << "Time deque: " << time << " us" << std::endl;
 
-    printDeque(_deque, "End deque -> ");
-    
+    printList(_list, "Start list -> ");
+
     start = clock();
-    mergeInsertSortDeque(_deque);
+    mergeInsertSortList(_list);
     end = clock();
+
+    printList(_list, "End list -> ");
 
     time = static_cast<double>(end - start) / CLOCKS_PER_SEC * 1000000;
     std::cout << "Time list: " << time << " us" << std::endl;
