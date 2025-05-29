@@ -56,11 +56,17 @@ Array<Type>& Array<Type>::operator=(const Array& obj)
 
 template <class Type>
 Array<Type>::Array(const Array &obj)
-    :   _size(0),
-        _array(NULL)
+    :   _size(obj._size)
 {
     std::cout << "Array copy constructor called" << std::endl;
-    *this = obj;
+    if (_size > 0)
+    {
+        _array = new Type[_size];
+        for (unsigned int i = 0; i < _size; ++i)
+            _array[i] = obj._array[i];
+    }
+    else
+        _array = NULL;
 }
 
 template <class Type> 
