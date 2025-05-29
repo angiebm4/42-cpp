@@ -6,7 +6,7 @@
 /*   By: abarrio- <abarrio-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 09:16:48 by marvin            #+#    #+#             */
-/*   Updated: 2025/04/16 15:49:20 by abarrio-         ###   ########.fr       */
+/*   Updated: 2025/05/27 17:40:00 by abarrio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ class    Array
         Type& operator[](unsigned int index);
         const Type& operator[](unsigned int index) const; //para usar con arrays constantes
 
-        unsigned int size() const; //este metodo devuve el tamaño de array al no modificar el objeto se ppone como const
+        unsigned int size() const; //este metodo devuelve el tamaño de array al no modificar el objeto se ppone como const
         
 };
 
