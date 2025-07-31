@@ -6,14 +6,38 @@
 /*   By: abarrio- <abarrio-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 09:16:48 by marvin            #+#    #+#             */
-/*   Updated: 2025/05/21 13:10:09 by abarrio-         ###   ########.fr       */
+/*   Updated: 2025/07/31 13:36:12 by abarrio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
 #include <algorithm> 
+#include <vector>
+#include <set>
 
 // iss = Input String Stream
+
+// Genera la secuencia Jacobsthal hasta el tamaño n
+std::vector<size_t> generateJacobsthal(size_t n)
+{
+    std::vector<size_t> jacob;
+    jacob.push_back(0);
+    jacob.push_back(1);
+
+    // Generar hasta superar n
+    while (true)
+    {
+        size_t next = jacob[jacob.size() - 1] + 2 * jacob[jacob.size() - 2];
+        if (next >= n)
+            break;
+        jacob.push_back(next);
+    }
+
+    // Quitamos el primer 0
+    jacob.erase(jacob.begin());
+
+    return jacob;
+}
 
 bool checkduplicateNb(const std::list<int>& list, int number)
 {
@@ -106,19 +130,14 @@ void printDeque(const std::deque<int>& d, const std::string& msg = "")
     std::cout << std::endl;
 }
 
-
-
-void    PmergeMe::mergeInsertSortDeque(std::deque<int>& containerD)
+void PmergeMe::mergeInsertSortDeque(std::deque<int>& containerD)
 {
-    // Si solo tiene un elemento ya esta ordenado
     if (containerD.size() <= 1)
-        return ;
+        return;
 
-    // printDeque(containerD, "uwu ->");
-
-    // Divide la secuencia en pares y ordena cada par
-    std::deque<std::pair<int, int> >     pairs;
-    std::deque<int>                     unpair;
+    // 1. Dividir en pares
+    std::deque<std::pair<int, int> > pairs;
+    std::deque<int> unpair;
     size_t i = 0;
 
     while (i < containerD.size())
@@ -135,35 +154,52 @@ void    PmergeMe::mergeInsertSortDeque(std::deque<int>& containerD)
             unpair.push_back(containerD[i]);
         i += 2;
     }
-    // separa los mayores de cada par (estos se ordenan recursivamente)
 
+    // 2. Extraer los mayores y ordenarlos recursivamente
     std::deque<int> sorted;
     for (size_t i = 0; i < pairs.size(); ++i)
         sorted.push_back(pairs[i].second);
-        
+
     mergeInsertSortDeque(sorted);
 
-    // Insertar los menores uno a uno
-    // Los menores se insertan uno a uno en el sitio correcto
-    for (size_t i = 0; i < pairs.size(); ++i) 
+    // 3. Insertar los menores en orden Jacobsthal
+    std::vector<size_t> jacob = generateJacobsthal(pairs.size());
+    std::set<size_t> inserted; // para evitar duplicados
+
+    // Inserción siguiendo Jacobsthal
+    for (size_t k = 0; k < jacob.size(); ++k)
     {
-        int toInsert = pairs[i].first;
-        std::deque<int>::iterator pos = std::lower_bound(sorted.begin(), sorted.end(), toInsert);
-        sorted.insert(pos, toInsert);
+        size_t index = jacob[k];
+        if (index < pairs.size() && inserted.find(index) == inserted.end())
+        {
+            int toInsert = pairs[index].first;
+            std::deque<int>::iterator pos = std::lower_bound(sorted.begin(), sorted.end(), toInsert);
+            sorted.insert(pos, toInsert);
+            inserted.insert(index);
+        }
     }
 
-    // Insertar el sobrante si había alguno
-    // Si hay un elemento sin pareja tambien se inserta
-    if (!unpair.empty()) 
+    // Inserción de los restantes no cubiertos por Jacobsthal
+    for (size_t i = 0; i < pairs.size(); ++i)
+    {
+        if (inserted.find(i) == inserted.end())
+        {
+            int toInsert = pairs[i].first;
+            std::deque<int>::iterator pos = std::lower_bound(sorted.begin(), sorted.end(), toInsert);
+            sorted.insert(pos, toInsert);
+            inserted.insert(i);
+        }
+    }
+
+    // 4. Insertar el sobrante si había alguno
+    if (!unpair.empty())
     {
         int last = unpair.front();
         std::deque<int>::iterator pos = std::lower_bound(sorted.begin(), sorted.end(), last);
         sorted.insert(pos, last);
     }
 
-
     containerD = sorted;
-    //printDeque(containerD, "owo ->");
 }
 
 void printList(const std::list<int>& l, const std::string& msg = "")
@@ -224,9 +260,33 @@ void PmergeMe::mergeInsertSortList(std::list<int>& containerL)
 
     mergeInsertSortList(sorted); // recursivo sobre los máximos
 
-    // 4. Insertar menores uno a uno
-    for (std::list<std::pair<int, int> >::iterator pit = pairs.begin(); pit != pairs.end(); ++pit)
-        insertInSortedList(sorted, pit->first);
+    // 4. Inserción con Jacobsthal
+    std::vector<size_t> jacob = generateJacobsthal(pairs.size());
+
+    // Convertir pairs a vector para indexar fácilmente
+    std::vector<std::pair<int,int> > pairsVec(pairs.begin(), pairs.end());
+    std::set<size_t> inserted; // para controlar duplicados
+
+    // Insertar siguiendo la secuencia Jacobsthal
+    for (size_t k = 0; k < jacob.size(); ++k)
+    {
+        size_t index = jacob[k];
+        if (index < pairsVec.size() && inserted.find(index) == inserted.end())
+        {
+            insertInSortedList(sorted, pairsVec[index].first);
+            inserted.insert(index);
+        }
+    }
+
+    // Insertar los menores que no estaban en Jacobsthal
+    for (size_t i = 0; i < pairsVec.size(); ++i)
+    {
+        if (inserted.find(i) == inserted.end())
+        {
+            insertInSortedList(sorted, pairsVec[i].first);
+            inserted.insert(i);
+        }
+    }
 
     // 5. Insertar sobrante si lo hay
     if (!unpaired.empty())
