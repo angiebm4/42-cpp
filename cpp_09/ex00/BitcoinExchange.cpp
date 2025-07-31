@@ -6,7 +6,7 @@
 /*   By: abarrio- <abarrio-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 09:16:48 by marvin            #+#    #+#             */
-/*   Updated: 2025/07/31 12:33:31 by abarrio-         ###   ########.fr       */
+/*   Updated: 2025/07/31 13:04:17 by abarrio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,8 @@ bool    isValidDate(const std::string& date)
     if (tm.tm_year != year - 1900 || tm.tm_mon != month - 1 || tm.tm_mday != day)
         return false;   // mktime ha corregido la fecha => no es válida
                         //checkeamos que siga siendo la misma fecha mktime ajusta la fecha a algo coherente
-    if (time > std::time(0))
-        return false;   // Mira si la fecha es del futuro
+    /*if (time > std::time(0))
+        return false;   // Mira si la fecha es del futuro*/
         
     return true;
 }
