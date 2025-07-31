@@ -6,7 +6,7 @@
 /*   By: abarrio- <abarrio-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 09:16:48 by marvin            #+#    #+#             */
-/*   Updated: 2025/05/13 14:41:29 by abarrio-         ###   ########.fr       */
+/*   Updated: 2025/07/31 12:33:31 by abarrio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,21 +56,6 @@ bool    isValidDate(const std::string& date)
     return true;
 }
 
-/*void isValidRate(const std::string& str, float& outValue, int flag)
-{
-    outValue = std::atof(str.c_str());
-    std::cout << "============= " << outValue << " ========== " << std::endl;
-
-    if (flag == 0 && outValue < MIN_VALUE)
-        throw std::runtime_error("not a positive number.");
-    else if (flag == 0 && outValue > MAX_VALUE)
-        throw std::runtime_error("too large a number.");
-    else if (flag == 1 && outValue < MIN_VALUE)
-        throw std::runtime_error("negative rate, in data base");
-    else
-        return ;
-}*/
-
 bool isValidRate(const std::string& str, float& outValue, int flag)
 {
     const char* s = str.c_str();
@@ -102,14 +87,14 @@ void    BitcoinExchange::makeDataBase(const std::string& fileName)
     std::ifstream   file(fileName.c_str());
 
     if (!file.is_open())
-        throw std::runtime_error("data.csv file, cant open");
+        throw std::runtime_error("data.csv file, cant open, in data base");
 
     std::string line;
     
     std::getline(file, line);
 
     if (line != "date,exchange_rate")
-        throw std::runtime_error("Invalid file Header");
+        throw std::runtime_error("Invalid file Header, in data base");
 
     while(std::getline(file, line))
     {
@@ -123,19 +108,19 @@ void    BitcoinExchange::makeDataBase(const std::string& fileName)
         std::string rateStr = line.substr(pos + 1);
 
         if (!isValidRate(rateStr, rate, 1))
-            throw std::runtime_error("bad input => " + line);
+            throw std::runtime_error("bad input, in data base => " + line);
 
         if (!isValidDate(date))
             throw std::runtime_error("Invalid date, in data base");
+
+        if (dataBase.find(date) != dataBase.end())
+            throw std::runtime_error("Duplicate date found, in data base => " + date);
 
         dataBase[date] = rate;
     }
 }
 
-BitcoinExchange::BitcoinExchange() 
-{
-    makeDataBase("data.csv");
-}
+BitcoinExchange::BitcoinExchange() {}
 
 BitcoinExchange::~BitcoinExchange() {}
 
@@ -153,6 +138,7 @@ std::map<std::string, float> BitcoinExchange::getDataBase()
 {
     return dataBase;
 }
+
 /*
     - Si la clave exacta existe → usar ese valor.
     - Si no existe → usar la clave anterior más cercana 
@@ -167,10 +153,10 @@ float   BitcoinExchange::calculateNewRate(std::string date, float rate)
     // Clave exacta existe
     if (it != dataBase.end() && it->first == date)
         newRate = it->second;
-    // Clave
+    // No hay ninguna clave en el mapa menor a date , se coge la primera
     else if (it == dataBase.begin())
         newRate = it->second;
-    // Clave no existe
+    // Clave no encontrada y date está entre dos claves
     else
     {
         --it;

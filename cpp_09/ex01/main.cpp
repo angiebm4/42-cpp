@@ -6,12 +6,13 @@
 /*   By: abarrio- <abarrio-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 09:16:48 by marvin            #+#    #+#             */
-/*   Updated: 2025/05/17 17:27:45 by abarrio-         ###   ########.fr       */
+/*   Updated: 2025/07/31 12:03:14 by abarrio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "RPN.hpp"
+
 /*
 std::stack para manejar los operandos.
 
@@ -25,6 +26,11 @@ std::string y std::stringstream para parsear.
 
 */
 
+/* Si es número (isdigit): lo agrega a la pila.
+
+Si es operador (+, -, *, /): aplica la operación.
+
+Si es algo inválido: muestra error y termina.*/
 
 int main(int argc, char*argv[])
 {

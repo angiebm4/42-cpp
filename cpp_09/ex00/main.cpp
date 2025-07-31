@@ -6,7 +6,7 @@
 /*   By: abarrio- <abarrio-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 09:16:48 by marvin            #+#    #+#             */
-/*   Updated: 2025/05/13 14:04:56 by abarrio-         ###   ########.fr       */
+/*   Updated: 2025/07/31 12:30:39 by abarrio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,17 +45,18 @@ int main(int argc, char*argv[])
         return 1;
     }
 
-    BitcoinExchange exchange;
-    std::ifstream   file(argv[1]);
-    
-    if (!file.is_open())
-    {
-        std::cerr << "Error: " << argv[1] << " file, cant open." << std::endl;
-        return 1;
-    }
-
     try
     {
+        BitcoinExchange exchange;
+        std::ifstream   file(argv[1]);
+        exchange.makeDataBase("data.csv");
+        
+        if (!file.is_open())
+        {
+            std::cerr << "Error: " << argv[1] << " file, cant open." << std::endl;
+            return 1;
+        }
+
         std::string line;
         std::getline(file, line);
 
